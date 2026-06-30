@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài học Ngày 2 — Số đếm, tuổi & số điện thoại</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#243449; --ink:#e2e8f0; --muted:#94a3b8;
+    --accent:#38bdf8; --accent2:#22c55e; --warn:#fbbf24; --line:#334155;
+    --p1:#38bdf8; --p2:#22c55e; --p3:#fb923c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    background:linear-gradient(160deg,#0f172a,#111c34);color:var(--ink);line-height:1.65;padding:0 0 60px}
+  header{padding:34px 20px 24px;text-align:center;background:radial-gradient(circle at top,#1e3a5f55,transparent)}
+  header .crumb{color:var(--muted);font-size:13px;letter-spacing:.5px}
+  header h1{margin:8px 0 6px;font-size:26px;color:#fff}
+  header p{margin:2px 0;color:var(--muted)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 16px}
+  .bar{position:sticky;top:0;z-index:10;background:#0f172aee;backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .bar .prog{flex:1;min-width:160px;height:12px;background:#0b1324;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  .bar .prog>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
+  .bar b{color:var(--accent2)}
+  .bar button{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:13px}
+  .bar button:hover{background:#475569}
+  .part{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:20px 0;overflow:hidden}
+  .part>.head{padding:14px 20px;font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px;
+    border-left:5px solid var(--p1)}
+  .part.p1>.head{border-color:var(--p1)} .part.p2>.head{border-color:var(--p2)} .part.p3>.head{border-color:var(--p3)}
+  .part .head .min{margin-left:auto;font-size:12px;font-weight:600;color:var(--muted);background:#0b1324;padding:3px 10px;border-radius:20px}
+  .part .body{padding:6px 20px 20px}
+  h3{color:var(--accent);font-size:15px;margin:18px 0 8px}
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+  th{background:var(--card2)}
+  td b{color:#fff}
+  .ipa{color:var(--warn);font-style:normal}
+  .numgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:10px 0}
+  .numgrid .n{background:#0b1324;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .numgrid .n b{color:#fff;font-size:16px} .numgrid .n span{color:var(--muted);font-size:13px;display:block}
+  .dialog{background:#0b1324;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:15px}
+  .dialog .en{color:#fff;font-weight:500}
+  .dialog .vi{color:var(--muted);font-size:13.5px;margin-bottom:10px;display:block}
+  .dialog .sp{color:var(--accent);font-weight:700}
+  .tpl{background:#0b1324;border:1px dashed var(--accent);border-radius:12px;padding:14px 16px;margin:10px 0;
+    font-family:Consolas,monospace;font-size:15px;color:#fff;white-space:pre-wrap;line-height:2}
+  .example{background:#14253b;border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;margin:10px 0;font-style:italic;color:#dbeafe}
+  .tip{background:#1c1a0e;border:1px solid #5a4a14;border-radius:10px;padding:10px 14px;margin:12px 0;color:#fde68a;font-size:14px}
+  ol{margin:8px 0;padding-left:22px} ol li{margin:5px 0}
+  ul.tasks{list-style:none;margin:8px 0;padding:0}
+  ul.tasks li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line)}
+  ul.tasks li:first-child{border-top:none}
+  ul.tasks label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  ul.tasks input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent2);flex-shrink:0;cursor:pointer}
+  .done label{text-decoration:line-through;color:var(--muted)}
+  .goal{background:#0f2a1a;border:1px solid #22c55e55;border-radius:12px;padding:14px 18px;margin:20px 0;color:#bbf7d0}
+  .nav{display:flex;justify-content:space-between;gap:10px;margin-top:24px}
+  .nav a{flex:1;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--accent);text-decoration:none}
+  .nav a:hover{background:var(--card2)}
+  .part.p4>.head{border-color:#a78bfa}
+  .bl-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+  .bl-tools button{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px}
+  .bl-tools button:hover{background:#475569}
+  .bl-tools button.active{background:#a78bfa;color:#0b1324;font-weight:700;border-color:#a78bfa}
+  table.bl td{font-size:15px}
+  .biling.hide-en table.bl td.en:not(.reveal),
+  .biling.hide-vi table.bl td.vi:not(.reveal){filter:blur(6px);cursor:pointer;user-select:none}
+  .part.p5>.head{border-color:#22d3ee}
+  .reveal-all{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px;margin-bottom:6px}
+  .reveal-all:hover{background:#475569}
+  ol.speak{padding-left:22px;margin:10px 0}
+  ol.speak li{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  ol.speak .q{color:#fff;font-size:15.5px;font-weight:500}
+  ol.speak .a{display:inline-block;color:var(--accent2);font-size:15px;margin-top:5px;cursor:pointer;filter:blur(6px);transition:filter .15s;user-select:none}
+  ol.speak .a.reveal{filter:none;cursor:default}
+  .spk{background:transparent;border:none;cursor:pointer;font-size:14px;padding:0 3px;margin-left:6px;line-height:1;vertical-align:middle;opacity:.7}
+  .spk:hover{opacity:1}
+  .numgrid .n{position:relative}
+  .numgrid .n .spk{position:absolute;top:6px;right:4px;margin:0}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+  <div class="crumb">TUẦN 1 · NGÀY 2 (THỨ 3)</div>
+  <h1>🔢 Số đếm, tuổi &amp; số điện thoại</h1>
+  <p>Trình độ A1 · 45 phút · Numbers, Age &amp; Phone number</p>
+</header>
+
+<div class="bar">
+  <span>Hoàn thành:</span>
+  <div class="prog"><span id="progFill"></span></div>
+  <b id="progText">0%</b>
+  <button onclick="resetAll()">Làm lại</button>
+</div>
+
+<div class="wrap">
+
+  <!-- PHẦN 1 -->
+  <div class="part p1">
+    <div class="head">🟦 Phần 1 — Từ vựng &amp; mẫu câu <span class="min">15 phút</span></div>
+    <div class="body">
+      <p>Đọc to từng số <b>3 lần</b>. Học chắc số 1–20 và hàng chục là đếm được tới 100!</p>
+
+      <h3>A. Số đếm 1–20</h3>
+      <div class="numgrid">
+        <div class="n"><b>1</b> <span>one /wʌn/</span></div>
+        <div class="n"><b>2</b> <span>two /tuː/</span></div>
+        <div class="n"><b>3</b> <span>three /θriː/</span></div>
+        <div class="n"><b>4</b> <span>four /fɔːr/</span></div>
+        <div class="n"><b>5</b> <span>five /faɪv/</span></div>
+        <div class="n"><b>6</b> <span>six /sɪks/</span></div>
+        <div class="n"><b>7</b> <span>seven /ˈsevn/</span></div>
+        <div class="n"><b>8</b> <span>eight /eɪt/</span></div>
+        <div class="n"><b>9</b> <span>nine /naɪn/</span></div>
+        <div class="n"><b>10</b> <span>ten /ten/</span></div>
+        <div class="n"><b>11</b> <span>eleven /ɪˈlevn/</span></div>
+        <div class="n"><b>12</b> <span>twelve /twelv/</span></div>
+        <div class="n"><b>13</b> <span>thirteen</span></div>
+        <div class="n"><b>14</b> <span>fourteen</span></div>
+        <div class="n"><b>15</b> <span>fifteen</span></div>
+        <div class="n"><b>16</b> <span>sixteen</span></div>
+        <div class="n"><b>17</b> <span>seventeen</span></div>
+        <div class="n"><b>18</b> <span>eighteen</span></div>
+        <div class="n"><b>19</b> <span>nineteen</span></div>
+        <div class="n"><b>20</b> <span>twenty</span></div>
+      </div>
+
+      <h3>B. Hàng chục &amp; trăm</h3>
+      <div class="numgrid">
+        <div class="n"><b>30</b> <span>thirty</span></div>
+        <div class="n"><b>40</b> <span>forty</span></div>
+        <div class="n"><b>50</b> <span>fifty</span></div>
+        <div class="n"><b>60</b> <span>sixty</span></div>
+        <div class="n"><b>70</b> <span>seventy</span></div>
+        <div class="n"><b>80</b> <span>eighty</span></div>
+        <div class="n"><b>90</b> <span>ninety</span></div>
+        <div class="n"><b>100</b> <span>one hundred</span></div>
+      </div>
+      <div class="tip">🧩 <b>Ghép số:</b> 21 = twenty-<b>one</b>, 35 = thirty-<b>five</b>, 48 = forty-<b>eight</b>. Cứ "hàng chục + gạch nối + số đơn vị".</div>
+
+      <h3>C. Mẫu câu về tuổi &amp; số điện thoại</h3>
+      <table>
+        <tr><th>Tiếng Anh</th><th>Nghĩa</th></tr>
+        <tr><td><b>How old are you?</b></td><td>Bạn bao nhiêu tuổi?</td></tr>
+        <tr><td><b>I'm 28 years old.</b></td><td>Tôi 28 tuổi.</td></tr>
+        <tr><td><b>What's your phone number?</b></td><td>Số điện thoại của bạn là gì?</td></tr>
+        <tr><td><b>My number is 0901 234 567.</b></td><td>Số của tôi là 0901 234 567.</td></tr>
+        <tr><td><b>How much is it?</b></td><td>Cái này giá bao nhiêu?</td></tr>
+        <tr><td><b>It's fifty thousand dong.</b></td><td>Nó giá 50 nghìn đồng.</td></tr>
+      </table>
+      <div class="tip">📞 <b>Đọc số điện thoại:</b> đọc <b>từng chữ số một</b>. Số 0 đọc là <b>"oh"</b> /oʊ/ hoặc "zero". VD: 0901 → "oh-nine-oh-one".</div>
+
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t1"><span>Đã đọc to &amp; thuộc số 1–20</span></label></li>
+        <li><label><input type="checkbox" data-k="t2"><span>Đã học hàng chục, trăm &amp; cách ghép số (21, 35…)</span></label></li>
+        <li><label><input type="checkbox" data-k="t3"><span>Đã học mẫu câu hỏi tuổi / số điện thoại / giá tiền</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 2 -->
+  <div class="part p2">
+    <div class="head">🟩 Phần 2 — Nghe &amp; Nhại (Shadowing) <span class="min">15 phút</span></div>
+    <div class="body">
+      <p><b>Cách luyện:</b> Đọc hiểu nghĩa → đọc to <b>từng câu</b>, nhại theo đúng ngữ điệu → đọc lại cả đoạn 3–4 lần.</p>
+
+      <div class="dialog">
+        <div class="en"><span class="sp">A:</span> Hi Mai Khanh! How old are you?</div>
+        <span class="vi">Chào Mai Khanh! Bạn bao nhiêu tuổi?</span>
+        <div class="en"><span class="sp">B:</span> I'm 28 years old. How about you?</div>
+        <span class="vi">Tôi 28 tuổi. Còn bạn?</span>
+        <div class="en"><span class="sp">A:</span> I'm 30. Can I have your phone number?</div>
+        <span class="vi">Tôi 30. Cho mình xin số điện thoại được không?</span>
+        <div class="en"><span class="sp">B:</span> Sure! My number is 0901 234 567.</div>
+        <span class="vi">Được chứ! Số của mình là 0901 234 567.</span>
+        <div class="en"><span class="sp">A:</span> Let me check — oh-nine-oh-one, two-three-four, five-six-seven?</div>
+        <span class="vi">Để mình kiểm tra — 0901, 234, 567 đúng không?</span>
+        <div class="en"><span class="sp">B:</span> That's right! Thank you.</div>
+        <span class="vi" style="margin-bottom:0">Chính xác! Cảm ơn nhé.</span>
+      </div>
+
+      <div class="tip">🎧 <b>Mẹo nghe phát âm:</b> Mở <b>Google Dịch</b>, dán từng câu, bấm nút loa 🔊 để nghe chuẩn rồi nhại theo.</div>
+
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t4"><span>Đã đọc hiểu nghĩa cả đoạn hội thoại</span></label></li>
+        <li><label><input type="checkbox" data-k="t5"><span>Đã nhại theo từng câu (chú ý cách đọc số)</span></label></li>
+        <li><label><input type="checkbox" data-k="t6"><span>Đã đọc lại cả đoạn 3–4 lần cho trôi</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 3 -->
+  <div class="part p3">
+    <div class="head">🟧 Phần 3 — Nói &amp; Ghi âm <span class="min">15 phút</span></div>
+    <div class="body">
+      <p><b>Nhiệm vụ:</b> Nói tuổi, số điện thoại &amp; một vài giá tiền — rồi ghi âm lại.</p>
+
+      <h3>Khung mẫu (điền thông tin của bạn)</h3>
+      <div class="tpl">Hi! My name is Mai Khanh.
+I'm ____ years old.
+My phone number is __________.
+This coffee is __________ dong.
+That book is __________ dong.</div>
+
+      <h3>Ví dụ hoàn chỉnh</h3>
+      <div class="example">Hi! My name is Mai Khanh. I'm 28 years old. My phone number is oh-nine-oh-one, two-three-four, five-six-seven. This coffee is thirty thousand dong. That book is ninety thousand dong.</div>
+
+      <h3>Luyện thêm — Đọc to các số sau</h3>
+      <div class="example" style="font-style:normal;color:#fff">15 · 27 · 40 · 63 · 88 · 100 · số điện thoại của chính bạn</div>
+
+      <h3>Các bước thực hiện</h3>
+      <ol>
+        <li>📝 Viết bài theo khung trên với thông tin thật của bạn (2 phút)</li>
+        <li>🗣️ Đọc to &amp; tập 2–3 lần, chú ý đọc rõ từng số (5 phút)</li>
+        <li>🎙️ <b>Ghi âm</b> bằng điện thoại — nói tự nhiên (3 phút)</li>
+        <li>👂 <b>Nghe lại</b> — đọc số đã rõ chưa? có sai số nào không? (5 phút)</li>
+      </ol>
+
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t7"><span>Đã viết bài với tuổi / số điện thoại của mình</span></label></li>
+        <li><label><input type="checkbox" data-k="t8"><span>Đã đọc to các số luyện thêm (15, 27, 40…)</span></label></li>
+        <li><label><input type="checkbox" data-k="t9"><span>Đã ghi âm &amp; nghe lại</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 4 -->
+  <div class="part p4">
+    <div class="head">🔁 Phần 4 — Luyện dịch song ngữ (Việt ⇄ Anh) <span class="min">Tự kiểm tra</span></div>
+    <div class="body">
+      <p>Chọn chế độ để tự kiểm tra. Ô bị <b>mờ</b> → <b>bấm vào để hiện đáp án</b>. Hãy thử nói/dịch ra trước khi bấm nhé!</p>
+      <div class="biling" id="biling">
+        <div class="bl-tools">
+          <button data-m="both" class="active" onclick="blMode('both',this)">👁️ Hiện cả hai</button>
+          <button data-m="hideEn" onclick="blMode('hideEn',this)">🇻🇳→🇬🇧 Ẩn tiếng Anh</button>
+          <button data-m="hideVi" onclick="blMode('hideVi',this)">🇬🇧→🇻🇳 Ẩn tiếng Việt</button>
+        </div>
+        <table class="bl">
+          <tr><th>Tiếng Việt</th><th>Tiếng Anh</th></tr>
+          <tr><td class="vi">Bạn bao nhiêu tuổi?</td><td class="en">How old are you?</td></tr>
+          <tr><td class="vi">Tôi 28 tuổi.</td><td class="en">I'm 28 years old.</td></tr>
+          <tr><td class="vi">Số điện thoại của bạn là gì?</td><td class="en">What's your phone number?</td></tr>
+          <tr><td class="vi">Số của tôi là 0901 234 567.</td><td class="en">My number is 0901 234 567.</td></tr>
+          <tr><td class="vi">Cho mình xin số điện thoại được không?</td><td class="en">Can I have your phone number?</td></tr>
+          <tr><td class="vi">Cái này giá bao nhiêu?</td><td class="en">How much is it?</td></tr>
+          <tr><td class="vi">Nó giá năm mươi nghìn đồng.</td><td class="en">It's fifty thousand dong.</td></tr>
+          <tr><td class="vi">Để mình kiểm tra lại nhé.</td><td class="en">Let me check.</td></tr>
+          <tr><td class="vi">Đúng rồi! Cảm ơn nhé.</td><td class="en">That's right! Thank you.</td></tr>
+        </table>
+      </div>
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t10"><span>Đã luyện dịch Việt → Anh (ẩn tiếng Anh, tự nói rồi kiểm tra)</span></label></li>
+        <li><label><input type="checkbox" data-k="t11"><span>Đã luyện dịch Anh → Việt (ẩn tiếng Việt)</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 5 -->
+  <div class="part p5">
+    <div class="head">🗣️ Phần 5 — Luyện nói: Nhìn tiếng Việt → Nói tiếng Anh <span class="min">Nói to</span></div>
+    <div class="body">
+      <p>Nhìn câu <b>tiếng Việt</b>, <b>nói to câu tiếng Anh</b> 2–3 lần. Bí thì <b>bấm vào dòng đáp án</b> (đang mờ) để xem.</p>
+      <button class="reveal-all" onclick="revealAll()">👁️ Hiện tất cả đáp án</button>
+      <button class="reveal-all" onclick="hideAll()">🙈 Ẩn tất cả đáp án</button>
+      <ol class="speak">
+        <li><div class="q">Bạn bao nhiêu tuổi?</div><div class="a">→ How old are you?</div></li>
+        <li><div class="q">Tôi 28 tuổi.</div><div class="a">→ I'm 28 years old.</div></li>
+        <li><div class="q">Số điện thoại của bạn là gì?</div><div class="a">→ What's your phone number?</div></li>
+        <li><div class="q">Số của tôi là 0901 234 567.</div><div class="a">→ My number is 0901 234 567.</div></li>
+        <li><div class="q">Cho mình xin số điện thoại được không?</div><div class="a">→ Can I have your phone number?</div></li>
+        <li><div class="q">Cái này giá bao nhiêu?</div><div class="a">→ How much is it?</div></li>
+        <li><div class="q">Nó giá năm mươi nghìn đồng.</div><div class="a">→ It's fifty thousand dong.</div></li>
+        <li><div class="q">Đúng rồi, cảm ơn bạn.</div><div class="a">→ That's right, thank you.</div></li>
+      </ol>
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t12"><span>Đã nói to toàn bộ câu (nhìn Việt → nói Anh)</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="goal">🎯 <b>Mục tiêu hôm nay:</b> Đếm trôi chảy 1–100 &amp; nói được tuổi, số điện thoại của bạn mà không phải dừng lại nghĩ.</div>
+
+  <div class="nav">
+    <a href="Ngày 1 - Chào hỏi và Giới thiệu bản thân.html">◀ Ngày 1</a>
+    <a href="lo-trinh-giao-tiep.html">📋 Lộ trình</a>
+    <a href="Ngày 3 - Ngày, tháng và thời gian.html">Ngày 3 ▶</a>
+  </div>
+
+  <footer>Tích các ô khi hoàn thành — tiến độ được lưu tự động trong trình duyệt.<br>Tuần 1 · Ngày 2 · Chúc bạn học vui! 🚀</footer>
+</div>
+
+<script>
+const boxes=[...document.querySelectorAll('input[type=checkbox]')];
+function save(){const s={};boxes.forEach(c=>{if(c.checked)s[c.dataset.k]=1});localStorage.setItem('lesson_d2',JSON.stringify(s));}
+function load(){const s=JSON.parse(localStorage.getItem('lesson_d2')||'{}');boxes.forEach(c=>{if(s[c.dataset.k]){c.checked=true;toggle(c);}});}
+function toggle(c){c.closest('li').classList.toggle('done',c.checked);}
+function prog(){const done=boxes.filter(c=>c.checked).length;const pct=Math.round(done/boxes.length*100);
+  document.getElementById('progFill').style.width=pct+'%';document.getElementById('progText').textContent=pct+'%';}
+boxes.forEach(c=>c.addEventListener('change',()=>{toggle(c);save();prog();}));
+function resetAll(){if(confirm('Bỏ tích toàn bộ?')){localStorage.removeItem('lesson_d2');location.reload();}}
+function blMode(m,btn){
+  const b=document.getElementById('biling');
+  b.classList.remove('hide-en','hide-vi');
+  if(m==='hideEn')b.classList.add('hide-en');
+  if(m==='hideVi')b.classList.add('hide-vi');
+  b.querySelectorAll('.reveal').forEach(e=>e.classList.remove('reveal'));
+  document.querySelectorAll('.bl-tools button').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+}
+document.querySelectorAll('#biling table.bl td').forEach(td=>td.addEventListener('click',()=>{
+  const b=td.closest('.biling');
+  if(b.classList.contains('hide-en')||b.classList.contains('hide-vi'))td.classList.add('reveal');
+}));
+document.querySelectorAll('ol.speak .a').forEach(a=>a.addEventListener('click',()=>a.classList.add('reveal')));
+function revealAll(){document.querySelectorAll('ol.speak .a').forEach(a=>a.classList.add('reveal'));}
+function hideAll(){document.querySelectorAll('ol.speak .a').forEach(a=>a.classList.remove('reveal'));}
+/* ---- Loa đọc tiếng Anh ---- */
+function speak(t){
+  if(!('speechSynthesis' in window)){alert('Trình duyệt chưa hỗ trợ đọc. Hãy mở bằng Chrome hoặc Edge.');return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;speechSynthesis.speak(u);
+}
+function mkSpk(t){const b=document.createElement('button');b.className='spk';b.type='button';b.textContent='🔊';b.title='Nghe';
+  b.addEventListener('click',e=>{e.stopPropagation();e.preventDefault();speak(t);});return b;}
+function clean(s){return s.replace(/^\s*[AB]:\s*/,'').replace(/^\s*→\s*/,'').trim();}
+document.querySelectorAll('.dialog .en').forEach(el=>el.appendChild(mkSpk(clean(el.textContent))));
+document.querySelectorAll('.part.p1 table td:first-child').forEach(td=>td.appendChild(mkSpk(clean(td.textContent))));
+document.querySelectorAll('.numgrid .n').forEach(n=>{const b=n.querySelector('b');if(b)n.appendChild(mkSpk(b.textContent.split('/')[0].trim()));});
+document.querySelectorAll('.bl td.en').forEach(td=>td.appendChild(mkSpk(clean(td.textContent))));
+document.querySelectorAll('ol.speak .a').forEach(a=>a.appendChild(mkSpk(clean(a.textContent))));
+document.querySelectorAll('.example').forEach(ex=>ex.appendChild(mkSpk(clean(ex.textContent))));
+load();prog();
+</script>
+</body>
+</html>

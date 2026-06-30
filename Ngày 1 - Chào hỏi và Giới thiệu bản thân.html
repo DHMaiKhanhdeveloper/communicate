@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài học Ngày 1 — Chào hỏi & Giới thiệu bản thân</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#243449; --ink:#e2e8f0; --muted:#94a3b8;
+    --accent:#38bdf8; --accent2:#22c55e; --warn:#fbbf24; --line:#334155;
+    --p1:#38bdf8; --p2:#22c55e; --p3:#fb923c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    background:linear-gradient(160deg,#0f172a,#111c34);color:var(--ink);line-height:1.65;padding:0 0 60px}
+  header{padding:34px 20px 24px;text-align:center;background:radial-gradient(circle at top,#1e3a5f55,transparent)}
+  header .crumb{color:var(--muted);font-size:13px;letter-spacing:.5px}
+  header h1{margin:8px 0 6px;font-size:26px;color:#fff}
+  header p{margin:2px 0;color:var(--muted)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 16px}
+  .bar{position:sticky;top:0;z-index:10;background:#0f172aee;backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .bar .prog{flex:1;min-width:160px;height:12px;background:#0b1324;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  .bar .prog>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
+  .bar b{color:var(--accent2)}
+  .bar button{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:13px}
+  .bar button:hover{background:#475569}
+  .part{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:20px 0;overflow:hidden}
+  .part>.head{padding:14px 20px;font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px;
+    border-left:5px solid var(--p1)}
+  .part.p1>.head{border-color:var(--p1)} .part.p2>.head{border-color:var(--p2)} .part.p3>.head{border-color:var(--p3)}
+  .part .head .min{margin-left:auto;font-size:12px;font-weight:600;color:var(--muted);background:#0b1324;padding:3px 10px;border-radius:20px}
+  .part .body{padding:6px 20px 20px}
+  h3{color:var(--accent);font-size:15px;margin:18px 0 8px}
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+  th{background:var(--card2)}
+  td b{color:#fff}
+  .ipa{color:var(--warn);font-style:normal}
+  .dialog{background:#0b1324;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:15px}
+  .dialog .en{color:#fff;font-weight:500}
+  .dialog .vi{color:var(--muted);font-size:13.5px;margin-bottom:10px;display:block}
+  .dialog .sp{color:var(--accent);font-weight:700}
+  .tpl{background:#0b1324;border:1px dashed var(--accent);border-radius:12px;padding:14px 16px;margin:10px 0;
+    font-family:Consolas,monospace;font-size:15px;color:#fff;white-space:pre-wrap;line-height:2}
+  .example{background:#14253b;border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;margin:10px 0;font-style:italic;color:#dbeafe}
+  .tip{background:#1c1a0e;border:1px solid #5a4a14;border-radius:10px;padding:10px 14px;margin:12px 0;color:#fde68a;font-size:14px}
+  ol{margin:8px 0;padding-left:22px} ol li{margin:5px 0}
+  ul.tasks{list-style:none;margin:8px 0;padding:0}
+  ul.tasks li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line)}
+  ul.tasks li:first-child{border-top:none}
+  ul.tasks label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  ul.tasks input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent2);flex-shrink:0;cursor:pointer}
+  .done label{text-decoration:line-through;color:var(--muted)}
+  .goal{background:#0f2a1a;border:1px solid #22c55e55;border-radius:12px;padding:14px 18px;margin:20px 0;color:#bbf7d0}
+  .nav{display:flex;justify-content:space-between;gap:10px;margin-top:24px}
+  .nav a{flex:1;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--accent);text-decoration:none}
+  .nav a:hover{background:var(--card2)}
+  .part.p4>.head{border-color:#a78bfa}
+  .bl-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+  .bl-tools button{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px}
+  .bl-tools button:hover{background:#475569}
+  .bl-tools button.active{background:#a78bfa;color:#0b1324;font-weight:700;border-color:#a78bfa}
+  table.bl td{font-size:15px}
+  .biling.hide-en table.bl td.en:not(.reveal),
+  .biling.hide-vi table.bl td.vi:not(.reveal){filter:blur(6px);cursor:pointer;user-select:none}
+  .part.p5>.head{border-color:#22d3ee}
+  .reveal-all{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px;margin-bottom:6px}
+  .reveal-all:hover{background:#475569}
+  ol.speak{padding-left:22px;margin:10px 0}
+  ol.speak li{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  ol.speak .q{color:#fff;font-size:15.5px;font-weight:500}
+  ol.speak .a{display:inline-block;color:var(--accent2);font-size:15px;margin-top:5px;cursor:pointer;filter:blur(6px);transition:filter .15s;user-select:none}
+  ol.speak .a.reveal{filter:none;cursor:default}
+  .spk{background:transparent;border:none;cursor:pointer;font-size:14px;padding:0 3px;margin-left:6px;line-height:1;vertical-align:middle;opacity:.7}
+  .spk:hover{opacity:1}
+  .numgrid .n{position:relative}
+  .numgrid .n .spk{position:absolute;top:6px;right:4px;margin:0}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+  <div class="crumb">TUẦN 1 · NGÀY 1 (THỨ 2)</div>
+  <h1>👋 Chào hỏi &amp; Giới thiệu bản thân</h1>
+  <p>Trình độ A1 · 45 phút · Greetings &amp; Self-introduction</p>
+</header>
+
+<div class="bar">
+  <span>Hoàn thành:</span>
+  <div class="prog"><span id="progFill"></span></div>
+  <b id="progText">0%</b>
+  <button onclick="resetAll()">Làm lại</button>
+</div>
+
+<div class="wrap">
+
+  <!-- PHẦN 1 -->
+  <div class="part p1">
+    <div class="head">🟦 Phần 1 — Từ vựng &amp; mẫu câu <span class="min">15 phút</span></div>
+    <div class="body">
+      <p>Đọc to mỗi câu <b>3 lần</b>, vừa đọc vừa hiểu nghĩa.</p>
+
+      <h3>A. Chào hỏi (Greetings)</h3>
+      <table>
+        <tr><th>Tiếng Anh</th><th>Phiên âm</th><th>Nghĩa</th></tr>
+        <tr><td><b>Hello / Hi</b></td><td class="ipa">/həˈloʊ/ /haɪ/</td><td>Xin chào</td></tr>
+        <tr><td><b>Good morning</b></td><td class="ipa">/ɡʊd ˈmɔːrnɪŋ/</td><td>Chào buổi sáng</td></tr>
+        <tr><td><b>Nice to meet you</b></td><td class="ipa">/naɪs tə miːt juː/</td><td>Rất vui được gặp bạn</td></tr>
+        <tr><td><b>How are you?</b></td><td class="ipa">/haʊ ɑːr juː/</td><td>Bạn khỏe không?</td></tr>
+        <tr><td><b>I'm fine, thank you</b></td><td class="ipa">/aɪm faɪn θæŋk juː/</td><td>Tôi khỏe, cảm ơn</td></tr>
+      </table>
+
+      <h3>B. Giới thiệu bản thân (Introducing yourself)</h3>
+      <table>
+        <tr><th>Tiếng Anh</th><th>Nghĩa</th></tr>
+        <tr><td><b>My name is Mai Khanh</b></td><td>Tôi tên là Mai Khanh</td></tr>
+        <tr><td><b>I'm from Vietnam</b></td><td>Tôi đến từ Việt Nam</td></tr>
+        <tr><td><b>I live in Ho Chi Minh City</b></td><td>Tôi sống ở TP.HCM</td></tr>
+        <tr><td><b>I'm 30 years old</b></td><td>Tôi 30 tuổi</td></tr>
+        <tr><td><b>I work as a developer</b></td><td>Tôi làm lập trình viên</td></tr>
+        <tr><td><b>Nice to meet you too</b></td><td>Tôi cũng rất vui được gặp bạn</td></tr>
+      </table>
+
+      <div class="tip">✍️ <b>Việc cần làm:</b> Chép 12 cụm này ra sổ tay, thay bằng <b>thông tin thật của bạn</b> (tên, quê, tuổi, nghề).</div>
+
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t1"><span>Đã đọc to &amp; hiểu nghĩa 12 cụm từ vựng</span></label></li>
+        <li><label><input type="checkbox" data-k="t2"><span>Đã chép ra sổ &amp; thay thông tin của mình vào</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 2 -->
+  <div class="part p2">
+    <div class="head">🟩 Phần 2 — Nghe &amp; Nhại (Shadowing) <span class="min">15 phút</span></div>
+    <div class="body">
+      <p><b>Cách luyện:</b> Đọc hiểu nghĩa → đọc to <b>từng câu</b>, nhại theo đúng ngữ điệu → đọc lại cả đoạn 3–4 lần.</p>
+
+      <div class="dialog">
+        <div class="en"><span class="sp">A:</span> Hello! Nice to meet you.</div>
+        <span class="vi">Xin chào! Rất vui được gặp bạn.</span>
+        <div class="en"><span class="sp">B:</span> Hi! Nice to meet you too. My name is Mai Khanh. What's your name?</div>
+        <span class="vi">Chào! Tôi cũng rất vui. Tôi tên Mai Khanh. Bạn tên gì?</span>
+        <div class="en"><span class="sp">A:</span> I'm Anna. Where are you from, Mai Khanh?</div>
+        <span class="vi">Tôi là Anna. Bạn đến từ đâu vậy Mai Khanh?</span>
+        <div class="en"><span class="sp">B:</span> I'm from Vietnam. I live in Ho Chi Minh City. And you?</div>
+        <span class="vi">Tôi đến từ Việt Nam. Tôi sống ở TP.HCM. Còn bạn?</span>
+        <div class="en"><span class="sp">A:</span> I'm from Canada. What do you do?</div>
+        <span class="vi">Tôi đến từ Canada. Bạn làm nghề gì?</span>
+        <div class="en"><span class="sp">B:</span> I work as a developer. How about you?</div>
+        <span class="vi">Tôi là lập trình viên. Còn bạn thì sao?</span>
+        <div class="en"><span class="sp">A:</span> I'm a teacher. Nice talking to you!</div>
+        <span class="vi">Tôi là giáo viên. Rất vui được nói chuyện với bạn!</span>
+        <div class="en"><span class="sp">B:</span> Nice talking to you too. See you!</div>
+        <span class="vi" style="margin-bottom:0">Tôi cũng vậy. Hẹn gặp lại!</span>
+      </div>
+
+      <div class="tip">🎧 <b>Mẹo nghe phát âm:</b> Mở <b>Google Dịch</b>, dán từng câu, bấm nút loa 🔊 để nghe chuẩn rồi nhại theo.</div>
+
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t3"><span>Đã đọc hiểu nghĩa cả đoạn hội thoại</span></label></li>
+        <li><label><input type="checkbox" data-k="t4"><span>Đã nhại theo từng câu đúng ngữ điệu</span></label></li>
+        <li><label><input type="checkbox" data-k="t5"><span>Đã đọc lại cả đoạn 3–4 lần cho trôi</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 3 -->
+  <div class="part p3">
+    <div class="head">🟧 Phần 3 — Nói &amp; Ghi âm <span class="min">15 phút</span></div>
+    <div class="body">
+      <p><b>Nhiệm vụ:</b> Tự giới thiệu bản thân trong <b>1 phút</b> rồi ghi âm lại.</p>
+
+      <h3>Khung mẫu (điền thông tin của bạn)</h3>
+      <div class="tpl">Hello! My name is __________.
+I'm from __________.
+I live in __________.
+I'm ____ years old.
+I work as a __________.
+In my free time, I like __________.
+Nice to meet you!</div>
+
+      <h3>Ví dụ hoàn chỉnh</h3>
+      <div class="example">Hello! My name is Mai Khanh. I'm from Vietnam. I live in Ho Chi Minh City. I'm 30 years old. I work as a developer. In my free time, I like watching football. Nice to meet you!</div>
+
+      <h3>Các bước thực hiện</h3>
+      <ol>
+        <li>📝 Viết bài giới thiệu của bạn theo khung trên (2 phút)</li>
+        <li>🗣️ Đọc to &amp; tập 2–3 lần (5 phút)</li>
+        <li>🎙️ <b>Ghi âm</b> bằng điện thoại — nói tự nhiên, cố không nhìn giấy (3 phút)</li>
+        <li>👂 <b>Nghe lại</b> — phát âm rõ chưa? có ngập ngừng không? (5 phút)</li>
+      </ol>
+
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t6"><span>Đã viết bài tự giới thiệu của mình</span></label></li>
+        <li><label><input type="checkbox" data-k="t7"><span>Đã ghi âm bài nói</span></label></li>
+        <li><label><input type="checkbox" data-k="t8"><span>Đã nghe lại &amp; tự nhận xét</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 4 -->
+  <div class="part p4">
+    <div class="head">🔁 Phần 4 — Luyện dịch song ngữ (Việt ⇄ Anh) <span class="min">Tự kiểm tra</span></div>
+    <div class="body">
+      <p>Chọn chế độ để tự kiểm tra. Ô bị <b>mờ</b> → <b>bấm vào để hiện đáp án</b>. Hãy thử nói/dịch ra trước khi bấm nhé!</p>
+      <div class="biling" id="biling">
+        <div class="bl-tools">
+          <button data-m="both" class="active" onclick="blMode('both',this)">👁️ Hiện cả hai</button>
+          <button data-m="hideEn" onclick="blMode('hideEn',this)">🇻🇳→🇬🇧 Ẩn tiếng Anh</button>
+          <button data-m="hideVi" onclick="blMode('hideVi',this)">🇬🇧→🇻🇳 Ẩn tiếng Việt</button>
+        </div>
+        <table class="bl">
+          <tr><th>Tiếng Việt</th><th>Tiếng Anh</th></tr>
+          <tr><td class="vi">Xin chào! Rất vui được gặp bạn.</td><td class="en">Hello! Nice to meet you.</td></tr>
+          <tr><td class="vi">Tôi tên là Mai Khanh.</td><td class="en">My name is Mai Khanh.</td></tr>
+          <tr><td class="vi">Bạn tên gì?</td><td class="en">What's your name?</td></tr>
+          <tr><td class="vi">Tôi đến từ Việt Nam.</td><td class="en">I'm from Vietnam.</td></tr>
+          <tr><td class="vi">Tôi sống ở TP.HCM.</td><td class="en">I live in Ho Chi Minh City.</td></tr>
+          <tr><td class="vi">Bạn đến từ đâu?</td><td class="en">Where are you from?</td></tr>
+          <tr><td class="vi">Tôi làm lập trình viên.</td><td class="en">I work as a developer.</td></tr>
+          <tr><td class="vi">Bạn làm nghề gì?</td><td class="en">What do you do?</td></tr>
+          <tr><td class="vi">Tôi 30 tuổi.</td><td class="en">I'm 30 years old.</td></tr>
+          <tr><td class="vi">Rất vui được nói chuyện với bạn!</td><td class="en">Nice talking to you!</td></tr>
+        </table>
+      </div>
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t9"><span>Đã luyện dịch Việt → Anh (ẩn tiếng Anh, tự nói rồi kiểm tra)</span></label></li>
+        <li><label><input type="checkbox" data-k="t10"><span>Đã luyện dịch Anh → Việt (ẩn tiếng Việt)</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHẦN 5 -->
+  <div class="part p5">
+    <div class="head">🗣️ Phần 5 — Luyện nói: Nhìn tiếng Việt → Nói tiếng Anh <span class="min">Nói to</span></div>
+    <div class="body">
+      <p>Nhìn câu <b>tiếng Việt</b>, <b>nói to câu tiếng Anh</b> 2–3 lần. Bí thì <b>bấm vào dòng đáp án</b> (đang mờ) để xem.</p>
+      <button class="reveal-all" onclick="revealAll()">👁️ Hiện tất cả đáp án</button>
+      <button class="reveal-all" onclick="hideAll()">🙈 Ẩn tất cả đáp án</button>
+      <ol class="speak">
+        <li><div class="q">Xin chào, tôi tên là Mai Khanh.</div><div class="a">→ Hello, my name is Mai Khanh.</div></li>
+        <li><div class="q">Tôi đến từ Việt Nam.</div><div class="a">→ I'm from Vietnam.</div></li>
+        <li><div class="q">Tôi sống ở Thành phố Hồ Chí Minh.</div><div class="a">→ I live in Ho Chi Minh City.</div></li>
+        <li><div class="q">Tôi 30 tuổi.</div><div class="a">→ I'm 30 years old.</div></li>
+        <li><div class="q">Tôi làm lập trình viên.</div><div class="a">→ I work as a developer.</div></li>
+        <li><div class="q">Rất vui được gặp bạn.</div><div class="a">→ Nice to meet you.</div></li>
+        <li><div class="q">Bạn tên là gì?</div><div class="a">→ What's your name?</div></li>
+        <li><div class="q">Bạn làm nghề gì?</div><div class="a">→ What do you do?</div></li>
+      </ol>
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="t11"><span>Đã nói to toàn bộ câu (nhìn Việt → nói Anh)</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="goal">🎯 <b>Mục tiêu hôm nay:</b> Nói trôi chảy phần giới thiệu bản thân mà <b>không cần nhìn giấy</b>.</div>
+
+  <div class="nav">
+    <a href="lo-trinh-giao-tiep.html">📋 Về lộ trình tổng</a>
+    <a href="Ngày 2 - Số đếm, tuổi và số điện thoại.html">Ngày 2 ▶</a>
+  </div>
+
+  <footer>Tích các ô khi hoàn thành — tiến độ được lưu tự động trong trình duyệt.<br>Tuần 1 · Ngày 1 · Chúc bạn học vui! 🚀</footer>
+</div>
+
+<script>
+const boxes=[...document.querySelectorAll('input[type=checkbox]')];
+function save(){const s={};boxes.forEach(c=>{if(c.checked)s[c.dataset.k]=1});localStorage.setItem('lesson_d1',JSON.stringify(s));}
+function load(){const s=JSON.parse(localStorage.getItem('lesson_d1')||'{}');boxes.forEach(c=>{if(s[c.dataset.k]){c.checked=true;toggle(c);}});}
+function toggle(c){c.closest('li').classList.toggle('done',c.checked);}
+function prog(){const done=boxes.filter(c=>c.checked).length;const pct=Math.round(done/boxes.length*100);
+  document.getElementById('progFill').style.width=pct+'%';document.getElementById('progText').textContent=pct+'%';}
+boxes.forEach(c=>c.addEventListener('change',()=>{toggle(c);save();prog();}));
+function resetAll(){if(confirm('Bỏ tích toàn bộ?')){localStorage.removeItem('lesson_d1');location.reload();}}
+function blMode(m,btn){
+  const b=document.getElementById('biling');
+  b.classList.remove('hide-en','hide-vi');
+  if(m==='hideEn')b.classList.add('hide-en');
+  if(m==='hideVi')b.classList.add('hide-vi');
+  b.querySelectorAll('.reveal').forEach(e=>e.classList.remove('reveal'));
+  document.querySelectorAll('.bl-tools button').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+}
+document.querySelectorAll('#biling table.bl td').forEach(td=>td.addEventListener('click',()=>{
+  const b=td.closest('.biling');
+  if(b.classList.contains('hide-en')||b.classList.contains('hide-vi'))td.classList.add('reveal');
+}));
+document.querySelectorAll('ol.speak .a').forEach(a=>a.addEventListener('click',()=>a.classList.add('reveal')));
+function revealAll(){document.querySelectorAll('ol.speak .a').forEach(a=>a.classList.add('reveal'));}
+function hideAll(){document.querySelectorAll('ol.speak .a').forEach(a=>a.classList.remove('reveal'));}
+/* ---- Loa đọc tiếng Anh ---- */
+function speak(t){
+  if(!('speechSynthesis' in window)){alert('Trình duyệt chưa hỗ trợ đọc. Hãy mở bằng Chrome hoặc Edge.');return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;speechSynthesis.speak(u);
+}
+function mkSpk(t){const b=document.createElement('button');b.className='spk';b.type='button';b.textContent='🔊';b.title='Nghe';
+  b.addEventListener('click',e=>{e.stopPropagation();e.preventDefault();speak(t);});return b;}
+function clean(s){return s.replace(/^\s*[AB]:\s*/,'').replace(/^\s*→\s*/,'').trim();}
+document.querySelectorAll('.dialog .en').forEach(el=>el.appendChild(mkSpk(clean(el.textContent))));
+document.querySelectorAll('.part.p1 table td:first-child').forEach(td=>td.appendChild(mkSpk(clean(td.textContent))));
+document.querySelectorAll('.numgrid .n').forEach(n=>{const b=n.querySelector('b');if(b)n.appendChild(mkSpk(b.textContent.split('/')[0].trim()));});
+document.querySelectorAll('.bl td.en').forEach(td=>td.appendChild(mkSpk(clean(td.textContent))));
+document.querySelectorAll('ol.speak .a').forEach(a=>a.appendChild(mkSpk(clean(a.textContent))));
+document.querySelectorAll('.example').forEach(ex=>ex.appendChild(mkSpk(clean(ex.textContent))));
+load();prog();
+</script>
+</body>
+</html>

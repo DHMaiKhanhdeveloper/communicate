@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lộ trình Tiếng Anh Giao tiếp — Cơ bản đến Nâng cao (45 phút/ngày)</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#243449; --ink:#e2e8f0; --muted:#94a3b8;
+    --accent:#38bdf8; --accent2:#22c55e; --warn:#fbbf24; --line:#334155;
+    --a1:#38bdf8; --a2:#22c55e; --b1:#a78bfa; --b2:#f472b6; --c1:#fb923c; --rev:#fbbf24;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    background:linear-gradient(160deg,#0f172a,#111c34);color:var(--ink);line-height:1.6;padding:0 0 60px}
+  header{padding:34px 20px 26px;text-align:center;background:radial-gradient(circle at top,#1e3a5f55,transparent)}
+  header h1{margin:0 0 6px;font-size:28px;color:#fff}
+  header p{margin:2px 0;color:var(--muted)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+  .bar{position:sticky;top:0;z-index:10;background:#0f172aee;backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .bar .prog{flex:1;min-width:160px;height:12px;background:#0b1324;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  .bar .prog>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
+  .bar b{color:var(--accent2)}
+  .bar button{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:13px}
+  .bar button:hover{background:#475569}
+  section.phase{margin:26px 0 8px}
+  .phase-h{display:flex;align-items:center;gap:12px;margin:24px 0 6px;padding:10px 14px;border-radius:12px;
+    background:linear-gradient(90deg,#1e293b,#1e293b00);border-left:4px solid var(--accent)}
+  .phase-h h2{margin:0;font-size:19px}
+  .phase-h span{color:var(--muted);font-size:14px}
+  .week{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden}
+  .week>summary{cursor:pointer;list-style:none;padding:14px 18px;font-size:17px;font-weight:600;
+    display:flex;align-items:center;gap:10px;background:var(--card2)}
+  .week>summary::-webkit-details-marker{display:none}
+  .week>summary .goal{font-weight:400;color:var(--muted);font-size:14px;margin-left:auto}
+  .week>summary .wbar{width:70px;height:8px;background:#0b1324;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .week>summary .wbar>span{display:block;height:100%;width:0;background:var(--accent2)}
+  .day{padding:14px 18px;border-top:1px solid var(--line)}
+  .day h4{margin:0 0 8px;font-size:15px;color:var(--accent)}
+  .day h4 .tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;margin-left:8px;color:#0b1324}
+  .t-a1{background:var(--a1)} .t-a2{background:var(--a2)} .t-b1{background:var(--b1)}
+  .t-b2{background:var(--b2)} .t-c1{background:var(--c1)} .t-rev{background:var(--rev)}
+  ul.tasks{list-style:none;margin:0;padding:0}
+  ul.tasks li{display:flex;gap:10px;align-items:flex-start;padding:5px 0}
+  ul.tasks li label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;flex:1}
+  ul.tasks input{margin-top:5px;width:16px;height:16px;accent-color:var(--accent2);flex-shrink:0;cursor:pointer}
+  ul.tasks li .min{color:var(--muted);font-size:12px;white-space:nowrap;background:#0b1324;padding:1px 8px;border-radius:6px;align-self:flex-start;margin-top:3px}
+  .done label{text-decoration:line-through;color:var(--muted)}
+  .tips{background:#0b1324;border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:26px 0}
+  .tips h3{margin:0 0 8px;color:var(--warn)}
+  .tips ul{margin:6px 0;padding-left:20px}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+  .legend span{font-size:12px;padding:3px 10px;border-radius:20px;color:#0b1324;font-weight:600}
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+  th{background:var(--card2)}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🗣️ Lộ trình Tiếng Anh Giao tiếp</h1>
+  <p>Cơ bản → Nâng cao (A1 → C1) · 23 tuần · 45 phút mỗi ngày · 6 buổi/tuần</p>
+  <p style="font-size:13px">Mỗi ngày: Từ vựng &amp; mẫu câu → Nghe &amp; nhại (shadowing) → Nói &amp; ghi âm</p>
+  <div class="legend">
+    <span class="t-a1">A1 — Nền tảng</span>
+    <span class="t-a2">A2 — Sơ cấp</span>
+    <span class="t-b1">B1 — Trung cấp</span>
+    <span class="t-b2">B2 — Trung cao</span>
+    <span class="t-c1">C1 — Nâng cao</span>
+    <span class="t-rev">Ôn tập</span>
+  </div>
+</header>
+
+<div class="bar">
+  <span>Tiến độ:</span>
+  <div class="prog"><span id="progFill"></span></div>
+  <b id="progText">0%</b>
+  <button onclick="expandAll(true)">Mở tất cả</button>
+  <button onclick="expandAll(false)">Thu gọn</button>
+  <button onclick="resetAll()">Xóa tiến độ</button>
+</div>
+
+<div class="wrap">
+
+  <div class="tips">
+    <h3>📋 Mục tiêu từng giai đoạn</h3>
+    <table>
+      <tr><th>Giai đoạn</th><th>Trình độ</th><th>Tuần</th><th>Bạn sẽ làm được gì</th></tr>
+      <tr><td><b>1 — Nền tảng</b></td><td>A1</td><td>1–2</td><td>Từ vựng nền tảng, chào hỏi, giới thiệu, câu đơn giản</td></tr>
+      <tr><td><b>2 — Sơ cấp</b></td><td>A2</td><td>3–7</td><td>Giao tiếp tình huống đời thường (mua sắm, hỏi đường, nhà hàng…)</td></tr>
+      <tr><td><b>3 — Trung cấp</b></td><td>B1</td><td>8–13</td><td>Trò chuyện tự tin, kể chuyện, bày tỏ quan điểm</td></tr>
+      <tr><td><b>4 — Trung cao</b></td><td>B2</td><td>14–19</td><td>Nói trôi chảy, giao tiếp công việc, thuyết trình, tranh luận</td></tr>
+      <tr><td><b>5 — Nâng cao</b></td><td>C1</td><td>20–23</td><td>Nói tự nhiên gần như bản xứ, hùng biện, chủ đề chuyên sâu</td></tr>
+    </table>
+    <p style="margin:10px 0 0;color:var(--muted)"><b>4 tiêu chí tự đánh giá:</b> Từ vựng · Ngữ pháp · Phát âm · Độ trôi chảy (Fluency).</p>
+  </div>
+
+  <div class="phase-h"><h2>Giai đoạn 1 — Nền tảng (A1)</h2><span>Tuần 1–2 · Từ vựng nền tảng &amp; câu cơ bản</span></div>
+  <div id="g1"></div>
+
+  <div class="phase-h" style="border-color:var(--a2)"><h2>Giai đoạn 2 — Sơ cấp (A2)</h2><span>Tuần 3–7 · Tình huống đời thường</span></div>
+  <div id="g2"></div>
+
+  <div class="phase-h" style="border-color:var(--b1)"><h2>Giai đoạn 3 — Trung cấp (B1)</h2><span>Tuần 8–13 · Trò chuyện tự tin</span></div>
+  <div id="g3"></div>
+
+  <div class="phase-h" style="border-color:var(--b2)"><h2>Giai đoạn 4 — Trung cao (B2)</h2><span>Tuần 14–19 · Trôi chảy &amp; công việc</span></div>
+  <div id="g4"></div>
+
+  <div class="phase-h" style="border-color:var(--c1)"><h2>Giai đoạn 5 — Nâng cao (C1)</h2><span>Tuần 20–23 · Gần như bản xứ</span></div>
+  <div id="g5"></div>
+
+  <div class="tips">
+    <h3>💡 Khung 45 phút mỗi ngày</h3>
+    <ul>
+      <li><b>15'</b> — Học 10–15 từ vựng &amp; cụm/mẫu câu của chủ đề (viết ra sổ, đặt câu).</li>
+      <li><b>15'</b> — Nghe đoạn hội thoại mẫu &amp; <b>nhại lại (shadowing)</b> theo audio.</li>
+      <li><b>15'</b> — Nói phần luyện tập &amp; <b>ghi âm</b>, sau đó nghe lại sửa lỗi.</li>
+    </ul>
+    <h3 style="margin-top:14px">🔑 Nguyên tắc vàng</h3>
+    <ul>
+      <li><b>Nói mỗi ngày</b> — dù chỉ vài câu, đều đặn quan trọng hơn học dồn.</li>
+      <li><b>Không sợ sai</b> — sai là cách học nhanh nhất.</li>
+      <li><b>Luôn ghi âm &amp; nghe lại</b> — cách tự sửa và tiến bộ nhanh nhất.</li>
+      <li><b>Học theo cụm câu</b>, không học từ lẻ.</li>
+      <li>Ngoài 45', hãy nghe nhạc/xem phim tiếng Anh để "tắm" ngôn ngữ (miễn phí, không tính giờ).</li>
+    </ul>
+  </div>
+
+  <footer>Tích các ô để theo dõi tiến độ — dữ liệu được lưu tự động trong trình duyệt.<br>Cập nhật 08/06/2026 · Kiên trì mỗi ngày, bạn sẽ nói được! 🚀</footer>
+</div>
+
+<script>
+/* ---------- KHUNG NGÀY HỌC ---------- */
+// Ngày giao tiếp chuẩn theo chủ đề (45')
+function d(level, topic, vocab, speak){
+  return {t:level, title:topic, tasks:[
+    ["Học 10–15 từ vựng & cụm: "+vocab,"15"],
+    ["Nghe + nhại (shadowing) hội thoại mẫu chủ đề này","15"],
+    [speak+" (ghi âm & nghe lại)","15"]]};
+}
+// Ngày luyện phát âm (45')
+function dp(title, t1, t2, t3){
+  return {t:"a1", title:title, tasks:[[t1,"15"],[t2,"15"],[t3+" (ghi âm so sánh)","15"]]};
+}
+// Ngày ôn tập (45')
+function rev(title, t1, t2, t3){
+  return {t:"rev", title:title, tasks:[[t1, t1==="-"?"-":"15"],[t2,"15"],[t3,"15"]]};
+}
+
+const PLAN = {
+  /* ===== GIAI ĐOẠN 1 — A1 (Tuần 1–3) ===== */
+  g1: { weeks:[
+    { goal:"Từ vựng nền tảng & chào hỏi", days:[
+      d("a1","Chào hỏi & Giới thiệu bản thân","hello, nice to meet you, my name is, I'm from, I work as","Tự giới thiệu bản thân trong 1 phút"),
+      d("a1","Số đếm, tuổi & số điện thoại","numbers 1–100, how old are you, phone number","Nói tuổi, số điện thoại & giá tiền đơn giản"),
+      d("a1","Ngày, tháng & thời gian","days, months, what time is it, o'clock, half past","Nói giờ giấc & lịch trong tuần của bạn"),
+      d("a1","Gia đình","mother, father, brother, sister, married, children","Giới thiệu các thành viên trong gia đình"),
+      d("a1","Đồ vật & màu sắc quanh ta","table, chair, phone, colors, this is a…","Mô tả 5 đồ vật quanh bạn + màu sắc"),
+      rev("Ôn tập tuần 2","Ôn lại toàn bộ từ vựng trong tuần","Nghe lại bản ghi âm tự giới thiệu hôm trước","Nói lại phần giới thiệu bản thân, đầy đủ hơn")
+    ]},
+    { w:3, goal:"Câu cơ bản", days:[
+      d("a1","Động từ TO BE (am/is/are)","I am, you are, he is, phủ định & câu hỏi","Đặt 10 câu về bản thân & người quen"),
+      d("a1","This/That, These/Those","this is, that is, these are, those are","Mô tả đồ vật gần/xa bằng this/that"),
+      d("a1","Câu hỏi Wh- cơ bản","what, where, who, when, how","Hỏi & trả lời 8 câu Wh- thông dụng"),
+      d("a1","Sở hữu & mạo từ a/an/the","my, your, his, her, a/an, the","Nói về đồ dùng của bạn & người khác"),
+      d("a1","There is / There are","there is, there are, some, any","Mô tả phòng/nhà bạn có những gì"),
+      rev("Ôn tập Giai đoạn 1 (A1)","Tổng ôn từ vựng + cấu trúc đã học","Hội thoại đơn giản: chào hỏi – giới thiệu – hỏi thông tin","Ghi âm hội thoại 1 phút, tự đánh giá tiến bộ")
+    ]}
+  ]},
+
+  /* ===== GIAI ĐOẠN 2 — A2 (Tuần 4–8) ===== */
+  g2: { weeks:[
+    { w:4, goal:"Hiện tại đơn & thói quen", days:[
+      d("a2","Thói quen hằng ngày (Daily routine)","wake up, have breakfast, go to work, usually, every day","Kể thói quen 1 ngày của bạn"),
+      d("a2","Sở thích & thời gian rảnh","hobby, I like/love, free time, in my free time","Nói về sở thích của bạn"),
+      d("a2","Công việc / Học tập","job, work as, study, subject, company","Nói về công việc / việc học của bạn"),
+      d("a2","Trạng từ tần suất","always, often, sometimes, never, how often","Nói bạn thường làm gì & tần suất"),
+      d("a2","Hỏi & nói về người khác","does he…, what does she do, ngôi thứ 3 thêm -s","Hỏi – đáp về thói quen của bạn bè"),
+      rev("Ôn tập tuần 4","Ôn thì hiện tại đơn + trạng từ tần suất","Nghe đoạn hội thoại về daily routine + nhại","Nói lại routine của bạn, thêm chi tiết")
+    ]},
+    { w:5, goal:"Hiện tại tiếp diễn & mô tả", days:[
+      d("a2","Đang làm gì (Present continuous)","I'm doing, he's watching, right now, at the moment","Mô tả việc đang xảy ra quanh bạn"),
+      d("a2","Mô tả ngoại hình","tall, short, hair, eyes, look like, wear","Mô tả ngoại hình một người bạn"),
+      d("a2","Mô tả tính cách","kind, friendly, funny, shy, hard-working","Mô tả tính cách người thân/bạn bè"),
+      d("a2","Thời tiết & mùa","sunny, rainy, hot, cold, season, forecast","Nói về thời tiết hôm nay & mùa bạn thích"),
+      d("a2","Quần áo & mua sắm","clothes, size, try on, how much, expensive","Đóng vai mua quần áo trong cửa hàng"),
+      rev("Ôn tập tuần 5","So sánh hiện tại đơn vs tiếp diễn","Nghe + nhại đoạn mô tả người/cảnh","Mô tả 1 bức ảnh trong 1 phút")
+    ]},
+    { w:6, goal:"Quá khứ đơn & kể chuyện", days:[
+      d("a2","Quá khứ đơn (động từ thường)","yesterday, last week, played, worked, -ed","Kể bạn đã làm gì hôm qua"),
+      d("a2","Động từ bất quy tắc","went, ate, saw, had, did, was/were","Kể về cuối tuần vừa rồi"),
+      d("a2","Kể về chuyến đi / kỳ nghỉ","trip, holiday, visited, stayed, enjoyed","Kể về một chuyến đi đáng nhớ"),
+      d("a2","Kể kỷ niệm tuổi thơ","when I was young, used to, childhood, memory","Kể một kỷ niệm tuổi thơ"),
+      d("a2","Câu hỏi ở quá khứ","did you…?, where did you go, what did you do","Phỏng vấn bạn về cuối tuần của họ"),
+      rev("Ôn tập tuần 6","Ôn động từ bất quy tắc hay dùng","Nghe + nhại một câu chuyện ngắn","Kể lại một ngày đáng nhớ (ghi âm)")
+    ]},
+    { w:7, goal:"Tương lai & kế hoạch", days:[
+      d("a2","Kế hoạch (be going to)","be going to, plan to, next week, tomorrow","Nói kế hoạch cuối tuần này"),
+      d("a2","Dự định & quyết định (will)","I'll, I think I will, promise, decide","Phản ứng & quyết định trong tình huống"),
+      d("a2","Mời & gợi ý","would you like, let's, why don't we, how about","Mời bạn đi chơi & sắp xếp lịch"),
+      d("a2","Ước muốn & mục tiêu","I want to, I'd like to, in the future, dream","Nói về mục tiêu của bạn năm nay"),
+      d("a2","Đặt lịch hẹn","appointment, available, free, busy, meet at","Đóng vai đặt lịch hẹn qua điện thoại"),
+      rev("Ôn tập tuần 7","Phân biệt will vs be going to","Nghe + nhại hội thoại lên kế hoạch","Nói kế hoạch tuần tới của bạn")
+    ]},
+    { w:8, goal:"Tình huống thực tế đời sống", days:[
+      d("a2","Tại nhà hàng","menu, order, I'd like, the bill, waiter","Đóng vai gọi món tại nhà hàng"),
+      d("a2","Hỏi đường","how do I get to, turn left/right, straight, near","Hỏi & chỉ đường đến một địa điểm"),
+      d("a2","Đi mua sắm","how much, discount, cash, card, receipt","Đóng vai mua hàng & hỏi giá"),
+      d("a2","Tại sân bay / khách sạn","check in, booking, passport, reservation, luggage","Đóng vai nhận phòng khách sạn"),
+      d("a2","Gọi điện & xử lý vấn đề nhỏ","can I speak to, hold on, problem, help, sorry","Đóng vai gọi điện giải quyết một vấn đề"),
+      rev("Ôn tập Giai đoạn 2 (A2)","Tổng ôn từ vựng tình huống đời sống","Nghe + nhại 2 hội thoại tình huống","Hội thoại tình huống tự chọn 2 phút (ghi âm)")
+    ]}
+  ]},
+
+  /* ===== GIAI ĐOẠN 3 — B1 (Tuần 9–14) ===== */
+  g3: { weeks:[
+    { w:9, goal:"Kể chuyện & kết nối ý", days:[
+      d("b1","Hiện tại hoàn thành (have done)","have you ever, already, yet, just, since/for","Nói về trải nghiệm bạn từng có"),
+      d("b1","Nối câu & kể mạch lạc","first, then, after that, finally, because, so","Kể lại một sự kiện theo trình tự"),
+      d("b1","Diễn đạt cảm xúc","excited, nervous, disappointed, I feel that","Nói về cảm xúc trong các tình huống"),
+      d("b1","Đưa ý kiến cơ bản","I think, in my opinion, I agree, I disagree","Nêu ý kiến về một chủ đề quen thuộc"),
+      d("b1","Nói về phim / sách / âm nhạc","plot, character, recommend, genre, favorite","Giới thiệu một bộ phim / cuốn sách bạn thích"),
+      rev("Ôn tập tuần 9","Ôn hiện tại hoàn thành + từ nối","Nghe podcast ngắn (chậm) + nhại","Kể một trải nghiệm đáng nhớ 2 phút")
+    ]},
+    { w:10, goal:"Chủ đề xã hội quen thuộc", days:[
+      d("b1","Sức khỏe & lối sống","healthy, exercise, diet, stress, sleep well","Nói về cách bạn giữ sức khỏe"),
+      d("b1","Công nghệ & mạng xã hội","smartphone, app, social media, online, addicted","Nói về thói quen dùng điện thoại của bạn"),
+      d("b1","Du lịch & văn hóa","culture, local food, sightseeing, abroad, experience","Nói về một nơi bạn muốn đến"),
+      d("b1","Môi trường","pollution, recycle, plastic, environment, protect","Nói cách bạn bảo vệ môi trường"),
+      d("b1","Giáo dục & tự học","skill, knowledge, online course, improve, motivated","Nói về cách bạn tự học một kỹ năng"),
+      rev("Ôn tập tuần 10","Ôn từ vựng các chủ đề xã hội","Nghe + nhại đoạn nói chủ đề xã hội","Nói 2 phút về 1 chủ đề tự chọn")
+    ]},
+    { w:11, goal:"Diễn đạt nâng cao", days:[
+      d("b1","So sánh (hơn / nhất)","more…than, the most, as…as, better than","So sánh 2 thành phố / 2 món ăn"),
+      d("b1","Câu điều kiện loại 1","if + present, will, unless, as long as","Nói về kế hoạch có điều kiện (if…)"),
+      d("b1","Câu điều kiện loại 2 (giả định)","if I were, I would, imagine, suppose","Nói bạn sẽ làm gì nếu trúng số"),
+      d("b1","Mệnh đề quan hệ","who, which, that, where, the person who…","Mô tả người/vật bằng mệnh đề quan hệ"),
+      d("b1","Lý do & kết quả","because of, due to, as a result, that's why","Giải thích nguyên nhân – kết quả một việc"),
+      rev("Ôn tập tuần 11","Ôn câu điều kiện + mệnh đề quan hệ","Nghe + nhại đoạn hội thoại có lập luận","Trả lời 5 câu hỏi 'why' về quan điểm của bạn")
+    ]},
+    { w:12, goal:"Trò chuyện & tương tác", days:[
+      d("b1","Small talk (nói chuyện xã giao)","how's it going, what's up, by the way, anyway","Bắt chuyện & duy trì hội thoại xã giao"),
+      d("b1","Đồng ý & phản đối lịch sự","I see your point, however, I'm not sure, exactly","Thảo luận & bày tỏ đồng ý / không đồng ý"),
+      d("b1","Hỏi lại & làm rõ","sorry?, what do you mean, could you repeat, you mean…","Xử lý khi không hiểu trong hội thoại"),
+      d("b1","Kể tin tức & phản ứng","guess what, really?, that's great, oh no","Kể một tin & phản ứng tự nhiên"),
+      d("b1","Đưa lời khuyên","you should, why don't you, if I were you, I'd suggest","Đưa lời khuyên cho vấn đề của bạn bè"),
+      rev("Ôn tập tuần 12","Ôn cụm tương tác hội thoại","Nghe + nhại hội thoại 2 người","Hội thoại small talk 2 phút (ghi âm)")
+    ]},
+    { w:13, goal:"Mở rộng chủ đề & ý kiến", days:[
+      d("b1","Mô tả thành phố / quê hương","crowded, modern, traditional, convenient, atmosphere","Giới thiệu quê hương cho người nước ngoài"),
+      d("b1","Công việc mơ ước","career, salary, work-life balance, ambition","Nói về công việc mơ ước của bạn"),
+      d("b1","Tiền bạc & chi tiêu","save money, budget, afford, worth it, expensive","Nói về thói quen chi tiêu của bạn"),
+      d("b1","Lễ hội & truyền thống","festival, celebrate, custom, traditional food","Giới thiệu một lễ hội ở Việt Nam"),
+      d("b1","Thể thao & giải trí","match, support, team, relax, entertainment","Nói về môn thể thao / cách giải trí bạn thích"),
+      rev("Ôn tập tuần 13","Ôn từ vựng chủ đề mở rộng","Nghe + nhại đoạn độc thoại 2 phút","Nói 2 phút có mở – thân – kết về 1 chủ đề")
+    ]},
+    { w:14, goal:"Ôn & thực hành B1", days:[
+      rev("Phản xạ hỏi – đáp nhanh","Ôn cụm 'câu giờ': let me think, well, you know","Nghe câu hỏi & trả lời ngay 10 câu","Tự hỏi – đáp trước gương, không ngắt quãng"),
+      rev("Kể chuyện trôi chảy","Ôn từ nối & thì quá khứ","Nghe 1 câu chuyện + nhại","Kể 1 câu chuyện 2 phút không dừng (ghi âm)"),
+      rev("Bày tỏ quan điểm","Ôn cụm nêu ý kiến & lý do","Nghe một đoạn tranh luận đơn giản","Nêu quan điểm về 3 chủ đề khác nhau"),
+      rev("Hội thoại tình huống","Ôn cụm tương tác hội thoại","Đóng vai 1 tình huống đời sống","Ghi âm hội thoại 2 phút"),
+      rev("Mini test B1","-","Nói 3 phút về chủ đề bốc thăm (ghi âm)","Nghe lại, tự chấm 4 tiêu chí"),
+      rev("Ôn tập Giai đoạn 3 (B1)","Tổng kết từ vựng & cấu trúc B1","Xem lại các bản ghi âm, đo tiến bộ","Đặt mục tiêu cho giai đoạn B2")
+    ]}
+  ]},
+
+  /* ===== GIAI ĐOẠN 4 — B2 (Tuần 15–20) ===== */
+  g4: { weeks:[
+    { w:15, goal:"Diễn đạt trôi chảy", days:[
+      d("b2","Từ nối nâng cao","moreover, however, although, despite, on the other hand","Trình bày 1 chủ đề có lập luận 2 chiều"),
+      d("b2","Diễn đạt ý trừu tượng","tend to, in general, to some extent, it depends","Bàn về một xu hướng xã hội"),
+      d("b2","Phrasal verbs thông dụng","find out, come up with, deal with, put off","Dùng 8 phrasal verb trong câu của bạn"),
+      d("b2","Idiom & cách nói tự nhiên","piece of cake, hit the road, once in a while","Dùng 5 idiom trong hội thoại"),
+      d("b2","Diễn giải khi quên từ","it's a kind of…, the thing you use to…, something like…","Luyện paraphrase khi không nhớ từ chính xác"),
+      rev("Ôn tập tuần 15","Ôn từ nối + phrasal verbs","Nghe TED-Ed / podcast (tốc độ thường)","Nói 3 phút có lập luận chặt chẽ")
+    ]},
+    { w:16, goal:"Tiếng Anh công việc (1)", days:[
+      d("b2","Small talk công sở","colleague, how was your weekend, catch up","Small talk với đồng nghiệp đầu ngày"),
+      d("b2","Giới thiệu bản thân chuyên nghiệp","responsible for, in charge of, I specialize in","Giới thiệu bản thân & vai trò công việc"),
+      d("b2","Email công việc (nói nội dung)","follow up, attach, regarding, get back to you","Đọc & tóm tắt nội dung 1 email công việc"),
+      d("b2","Gọi điện công việc","this is … calling, put you through, leave a message","Đóng vai gọi điện công việc"),
+      d("b2","Hỏi & cung cấp thông tin","could you tell me, I'd like to know, as far as I know","Trao đổi thông tin công việc lịch sự"),
+      rev("Ôn tập tuần 16","Ôn cụm từ công sở","Nghe + nhại hội thoại nơi làm việc","Đóng vai 1 tình huống công sở (ghi âm)")
+    ]},
+    { w:17, goal:"Tiếng Anh công việc (2)", days:[
+      d("b2","Họp & phát biểu ý kiến","I'd like to add, from my point of view, shall we","Phát biểu ý kiến trong 1 cuộc họp giả định"),
+      d("b2","Đồng ý / phản đối trong họp","I'm afraid I disagree, that's a good point, however","Tranh luận lịch sự trong cuộc họp"),
+      d("b2","Thuyết trình ngắn","today I'll talk about, firstly, to sum up","Thuyết trình 2 phút về 1 chủ đề công việc"),
+      d("b2","Trình bày số liệu & xu hướng","increase, decrease, significantly, compared to","Mô tả 1 biểu đồ / số liệu đơn giản"),
+      d("b2","Đàm phán & đề xuất","I suggest, what if, we could, let's compromise","Đóng vai đàm phán / đề xuất giải pháp"),
+      rev("Ôn tập tuần 17","Ôn cụm họp & thuyết trình","Nghe 1 bài thuyết trình mẫu + nhại","Thuyết trình 3 phút (ghi âm)")
+    ]},
+    { w:18, goal:"Phỏng vấn & sự nghiệp", days:[
+      d("b2","Phỏng vấn xin việc","strengths, weaknesses, why should we hire you","Trả lời 5 câu phỏng vấn phổ biến"),
+      d("b2","Kinh nghiệm & thành tựu","I managed to, I was responsible for, achievement","Kể về một thành tựu trong công việc"),
+      d("b2","Xử lý câu hỏi khó","challenge, I learned that, looking back","Trả lời câu hỏi tình huống khó"),
+      d("b2","Mục tiêu nghề nghiệp","in five years, develop, grow, opportunity","Nói về định hướng sự nghiệp của bạn"),
+      d("b2","Networking & gây ấn tượng","nice to connect, keep in touch, look forward to","Đóng vai làm quen trong sự kiện nghề nghiệp"),
+      rev("Ôn tập tuần 18","Ôn câu trả lời phỏng vấn","Nghe + nhại 1 phỏng vấn mẫu","Mô phỏng phỏng vấn 5 phút (ghi âm)")
+    ]},
+    { w:19, goal:"Chủ đề tranh luận", days:[
+      d("b2","Công nghệ & AI","automation, replace jobs, benefit, concern","Tranh luận: AI có thay thế con người?"),
+      d("b2","Làm việc từ xa vs văn phòng","remote, productivity, flexibility, isolation","Tranh luận remote vs tại văn phòng"),
+      d("b2","Học online vs truyền thống","traditional, e-learning, interaction, self-discipline","Bàn về học online vs học truyền thống"),
+      d("b2","Mạng xã hội: lợi & hại","connect, misinformation, privacy, influence","Tranh luận lợi – hại của mạng xã hội"),
+      d("b2","Cân bằng công việc – cuộc sống","burnout, priority, boundaries, well-being","Nói quan điểm về work-life balance"),
+      rev("Ôn tập tuần 19","Ôn cụm lập luận 2 chiều","Nghe 1 cuộc tranh luận + nhại","Tranh luận 1 chủ đề: cả 2 mặt + kết luận")
+    ]},
+    { w:20, goal:"Ôn & thực hành B2", days:[
+      rev("Phản xạ chủ đề trừu tượng","Ôn cụm diễn đạt ý kiến nâng cao","Bốc thăm & nói ngay 2 phút","Trả lời nhanh 8 câu hỏi quan điểm"),
+      rev("Thuyết trình hoàn chỉnh","Ôn cấu trúc bài thuyết trình","Xem 1 bài thuyết trình hay","Thuyết trình 4 phút có Q&A (ghi âm)"),
+      rev("Hội thoại công việc","Ôn cụm công sở","Đóng vai họp / đàm phán","Mô phỏng 1 cuộc họp 4 phút"),
+      rev("Tranh luận chuyên sâu","Ôn từ nối & lập luận","Nghe một cuộc debate + nhại","Tranh luận 1 chủ đề khó 3 phút"),
+      rev("Mini test B2","-","Nói 4 phút về chủ đề học thuật (ghi âm)","Tự chấm + nhờ người / AI góp ý"),
+      rev("Ôn tập Giai đoạn 4 (B2)","Tổng kết từ vựng & kỹ năng B2","So sánh ghi âm với giai đoạn trước","Đặt mục tiêu cho giai đoạn C1")
+    ]}
+  ]},
+
+  /* ===== GIAI ĐOẠN 5 — C1 (Tuần 21–24) ===== */
+  g5: { weeks:[
+    { w:21, goal:"Nói tự nhiên như bản xứ", days:[
+      d("c1","Ngữ điệu & nhịp điệu bản xứ","stress-timed, intonation, weak forms","Shadowing tập trung ngữ điệu 1 đoạn dài"),
+      d("c1","Nối âm & nói nhanh tự nhiên","connected speech, gonna, wanna, reduction","Luyện đọc nhanh có nối âm"),
+      d("c1","Collocations nâng cao","make a decision, take responsibility, heavy rain","Dùng 10 collocation tự nhiên trong câu"),
+      d("c1","Idiom & slang phổ biến","hit the nail, under the weather, get the hang of","Dùng idiom đúng ngữ cảnh trong hội thoại"),
+      d("c1","Hài hước & sắc thái","sarcasm, irony, understatement, tone","Kể một câu chuyện hài / có sắc thái"),
+      rev("Ôn tập tuần 21","Ôn collocation & idiom","Shadowing phim / podcast tốc độ thật","Kể chuyện 3 phút với ngữ điệu tự nhiên")
+    ]},
+    { w:22, goal:"Diễn đạt tinh tế", days:[
+      d("c1","Diễn đạt sắc thái & mức độ","arguably, to a large extent, by and large","Bàn 1 chủ đề với sắc thái tinh tế"),
+      d("c1","Nói lịch sự & ngoại giao","with all due respect, I'd argue that, it could be said","Bày tỏ bất đồng một cách khéo léo"),
+      d("c1","Giả định phức tạp","had I known, were it not for, supposing that","Nói về tình huống giả định phức tạp"),
+      d("c1","Tóm tắt & diễn giải","in essence, to put it simply, the bottom line","Tóm tắt 1 bài báo / video bạn xem"),
+      d("c1","Phản biện & lập luận sâu","on the contrary, that said, it's worth noting","Phản biện một quan điểm trái chiều"),
+      rev("Ôn tập tuần 22","Ôn cụm diễn đạt tinh tế","Nghe phỏng vấn / talk show + nhại","Bình luận 3 phút về 1 vấn đề thời sự")
+    ]},
+    { w:23, goal:"Chủ đề chuyên sâu & học thuật", days:[
+      d("c1","Kinh tế & xã hội","inequality, economy, policy, sustainable","Bàn về một vấn đề kinh tế – xã hội"),
+      d("c1","Khoa học & tương lai","innovation, breakthrough, ethical, implications","Bàn về một tiến bộ khoa học"),
+      d("c1","Văn hóa & toàn cầu hóa","globalization, identity, diversity, heritage","Bàn về tác động của toàn cầu hóa"),
+      d("c1","Nghệ thuật & triết lý sống","interpretation, meaningful, perspective, value","Trình bày quan điểm về nghệ thuật / cuộc sống"),
+      d("c1","Vấn đề toàn cầu","climate change, poverty, solution, responsibility","Đề xuất giải pháp cho 1 vấn đề toàn cầu"),
+      rev("Ôn tập tuần 23","Ôn từ vựng học thuật","Nghe trọn 1 TED Talk + ghi ý chính","Thuyết trình học thuật 4 phút (ghi âm)")
+    ]},
+    { w:24, goal:"Hoàn thiện & tự tin", days:[
+      rev("Hùng biện & thuyết phục","Ôn cấu trúc bài nói thuyết phục","Xem 1 bài hùng biện hay","Nói thuyết phục 4 phút về 1 quan điểm"),
+      rev("Tranh luận trình độ cao","Ôn cụm phản biện sắc bén","Nghe debate trình độ cao","Tranh luận đa chiều 1 chủ đề khó"),
+      rev("Giao tiếp tự nhiên mọi tình huống","Ôn idiom & collocation","Hội thoại tự do với người bản xứ / AI","Trò chuyện 5 phút không kịch bản (ghi âm)"),
+      rev("Mini test C1","-","Nói 5 phút về chủ đề trừu tượng bốc thăm","Tự chấm theo tiêu chí C1 + nhờ góp ý"),
+      rev("Tổng kết hành trình","Xem lại toàn bộ ghi âm từ Tuần 1","So sánh trình độ đầu – cuối, ghi nhận tiến bộ","Đặt mục tiêu duy trì & nâng cao tiếp"),
+      rev("Duy trì & phát triển 🎉","Lập kế hoạch tiếp xúc tiếng Anh hằng ngày","Tham gia CLB / cộng đồng nói tiếng Anh","Cam kết nói tiếng Anh mỗi ngày để giữ phong độ")
+    ]}
+  ]}
+};
+
+/* ---------- RENDER ---------- */
+const dayNames=["Ngày 1 (T2)","Ngày 2 (T3)","Ngày 3 (T4)","Ngày 4 (T5)","Ngày 5 (T6)","Ngày 6 (T7)"];
+const tagLabel={a1:"A1",a2:"A2",b1:"B1",b2:"B2",c1:"C1",rev:"Ôn tập"};
+let TOTAL_WEEKS=0;
+let idc=0;
+let weekNo=0;
+function render(){
+  for(const gk of ["g1","g2","g3","g4","g5"]){
+    const host=document.getElementById(gk);
+    for(const wk of PLAN[gk].weeks){
+      weekNo++;
+      const det=document.createElement("details");
+      det.className="week";
+      det.innerHTML=`<summary>📅 Tuần ${weekNo}
+        <span class="goal">${wk.goal}</span>
+        <span class="wbar"><span data-wbar="${weekNo}"></span></span></summary>`;
+      const wn=weekNo;
+      wk.days.forEach((d,i)=>{
+        const div=document.createElement("div");
+        div.className="day";
+        let li="";
+        d.tasks.forEach(t=>{
+          const id="c"+(idc++);
+          const min = t[1]==="-" ? "" : `<span class="min">${t[1]}'</span>`;
+          li+=`<li><label><input type="checkbox" id="${id}" data-week="${wn}"><span>${t[0]}</span></label>${min}</li>`;
+        });
+        div.innerHTML=`<h4>${dayNames[i]}<span class="tag t-${d.t}">${tagLabel[d.t]}</span> — ${d.title}</h4><ul class="tasks">${li}</ul>`;
+        det.appendChild(div);
+      });
+      host.appendChild(det);
+    }
+  }
+  TOTAL_WEEKS=weekNo;
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change',()=>{toggle(cb);save();updateProg();});
+  });
+  load();updateProg();
+}
+function toggle(cb){ cb.closest('li').classList.toggle('done',cb.checked); }
+function save(){
+  const s={};document.querySelectorAll('input[type=checkbox]').forEach(cb=>{if(cb.checked)s[cb.id]=1;});
+  localStorage.setItem('giao_tiep','v1'+JSON.stringify(s));
+}
+function load(){
+  let raw=localStorage.getItem('giao_tiep')||'';
+  if(raw.startsWith('v1')) raw=raw.slice(2); else raw='{}';
+  const s=JSON.parse(raw||'{}');
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{if(s[cb.id]){cb.checked=true;toggle(cb);}});
+}
+function updateProg(){
+  const all=[...document.querySelectorAll('input[type=checkbox]')];
+  const done=all.filter(c=>c.checked).length;
+  const pct=all.length?Math.round(done/all.length*100):0;
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('progText').textContent=pct+'%';
+  for(let w=1;w<=TOTAL_WEEKS;w++){
+    const ws=all.filter(c=>c.dataset.week==w);
+    const wd=ws.filter(c=>c.checked).length;
+    const el=document.querySelector(`[data-wbar="${w}"]`);
+    if(el)el.style.width=(ws.length?wd/ws.length*100:0)+'%';
+  }
+}
+function expandAll(o){document.querySelectorAll('details.week').forEach(d=>d.open=o);}
+function resetAll(){if(confirm('Xóa toàn bộ tiến độ đã tích?')){localStorage.removeItem('giao_tiep');location.reload();}}
+render();
+</script>
+</body>
+</html>
