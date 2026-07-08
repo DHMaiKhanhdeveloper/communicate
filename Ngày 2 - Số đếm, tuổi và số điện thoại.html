@@ -79,7 +79,55 @@
   .spk:hover{opacity:1}
   .numgrid .n{position:relative}
   .numgrid .n .spk{position:absolute;top:6px;right:4px;margin:0}
+  /* ---- Phần 2: khối nghe & nhại ---- */
+  .listen{background:#0b1324;border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden}
+  .listen-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:11px 16px;background:#112039;border-bottom:1px solid var(--line)}
+  .listen-title{font-weight:700;color:var(--p2);font-size:15px}
+  .listen-ctrl{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+  .lc{background:#22c55e1f;color:#bbf7d0;border:1px solid #22c55e55;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:600;white-space:nowrap}
+  .lc:hover{background:#22c55e33}
+  .lc.on{background:var(--p2);color:#052e12;border-color:var(--p2);animation:lcpulse 1.1s ease-in-out infinite}
+  @keyframes lcpulse{0%,100%{opacity:1}50%{opacity:.5}}
+  .listen .dialog{margin:0;border:none;border-radius:0;background:transparent;padding:14px 16px}
+  .listen .vocab{border-top:1px dashed var(--line);padding:12px 16px;background:#0a1120}
+  .vocab-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .vocab-head>span{font-weight:600;color:var(--warn);font-size:13.5px}
+  table.voc{width:100%;border-collapse:collapse;font-size:14px;margin:0}
+  table.voc td{border:1px solid var(--line);padding:7px 10px;position:relative}
+  table.voc td.w{color:#fff;font-weight:600;width:44%}
+  table.voc td.m{color:var(--muted)}
+  table.voc td .spk{margin-left:6px}
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+  /* ---- Phần 6: Luyện phản xạ hỏi-đáp (Q&A) ---- */
+  .part.p6>.head{border-color:#a78bfa}
+  .qa{background:#0b1324;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0}
+  .qa-qhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .qa-num{color:#4ade80;font-weight:700;font-size:16px}
+  .qa-qen{color:#4ade80;font-weight:700;font-size:15.5px}
+  .qa-qvi{color:var(--muted);font-style:italic;font-size:13.5px;margin:4px 0 8px}
+  .qa-aen{color:#fff;font-size:15.5px;margin:6px 0;line-height:1.75}
+  .qa-aen b{color:var(--warn);font-weight:700}
+  .qa-aen .u{color:var(--accent);font-weight:600}
+  .qa-avi{color:#bbf7d0;font-size:14px;margin:8px 0 10px}
+  .qa-avi b{color:var(--accent2)}
+  .qc{background:#a78bfa22;color:#ddd6fe;border:1px solid #a78bfa66;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:600;white-space:nowrap;animation:none}
+  .qc:hover{background:#a78bfa38}
+  .qc.on{background:#a78bfa;color:#1e1b4b;border-color:#a78bfa;animation:lcpulse 1.1s ease-in-out infinite}
+  .qc.mini{padding:3px 8px;font-size:12px}
+  .qa-ctrl,.qa-vochead{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0 4px}
+  .qa-vochead>span{color:var(--warn);font-weight:600;font-size:13.5px}
+  .qa-voc{margin-top:8px}
+  .qvoc-wrap{overflow-x:auto}
+  table.qvoc{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 0;min-width:520px}
+  table.qvoc th,table.qvoc td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  table.qvoc th{background:var(--card2);color:var(--ink);font-size:13px}
+  table.qvoc td.w{color:#fff;font-weight:600;white-space:nowrap}
+  table.qvoc td.ph{font-size:13px;white-space:nowrap}
+  table.qvoc td.ph .hint{color:#86efac;display:block}
+  table.qvoc td.ph .ipa{color:#86efac;display:block;font-style:normal}
+  table.qvoc td.ty{color:var(--warn);font-style:italic;white-space:nowrap;font-size:13px}
+  table.qvoc td.mn{color:var(--muted)}
+  table.qvoc td .spk{margin-left:6px}
 </style>
 </head>
 <body>
@@ -165,29 +213,197 @@
   <div class="part p2">
     <div class="head">🟩 Phần 2 — Nghe &amp; Nhại (Shadowing) <span class="min">15 phút</span></div>
     <div class="body">
-      <p><b>Cách luyện:</b> Đọc hiểu nghĩa → đọc to <b>từng câu</b>, nhại theo đúng ngữ điệu → đọc lại cả đoạn 3–4 lần.</p>
+      <p><b>Cách luyện:</b> Nghe cả đoạn → nhại theo <b>từng câu</b> đúng ngữ điệu → bật <b>🔁 Nghe lặp</b> để nghe đi nghe lại cho trôi. Học xong đoạn nào, luyện luôn <b>bảng từ vựng</b> của đoạn đó.</p>
+      <div class="tip">🎧 <b>Nút điều khiển:</b> <b>▶️</b> nghe 1 lần · <b>🔁</b> nghe lặp liên tục (bấm lại để dừng) · <b>🔊</b> nghe riêng 1 câu / 1 từ. Cần mở bằng <b>Chrome</b> hoặc <b>Edge</b>.</div>
 
-      <div class="dialog">
-        <div class="en"><span class="sp">A:</span> Hi Mai Khanh! How old are you?</div>
-        <span class="vi">Chào Mai Khanh! Bạn bao nhiêu tuổi?</span>
-        <div class="en"><span class="sp">B:</span> I'm 28 years old. How about you?</div>
-        <span class="vi">Tôi 28 tuổi. Còn bạn?</span>
-        <div class="en"><span class="sp">A:</span> I'm 30. Can I have your phone number?</div>
-        <span class="vi">Tôi 30. Cho mình xin số điện thoại được không?</span>
-        <div class="en"><span class="sp">B:</span> Sure! My number is 0901 234 567.</div>
-        <span class="vi">Được chứ! Số của mình là 0901 234 567.</span>
-        <div class="en"><span class="sp">A:</span> Let me check — oh-nine-oh-one, two-three-four, five-six-seven?</div>
-        <span class="vi">Để mình kiểm tra — 0901, 234, 567 đúng không?</span>
-        <div class="en"><span class="sp">B:</span> That's right! Thank you.</div>
-        <span class="vi" style="margin-bottom:0">Chính xác! Cảm ơn nhé.</span>
+      <!-- ĐOẠN 1 -->
+      <div class="listen">
+        <div class="listen-head">
+          <span class="listen-title">🗨️ Đoạn 1 — Hỏi tuổi</span>
+          <div class="listen-ctrl">
+            <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
+            <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
+          </div>
+        </div>
+        <div class="dialog">
+          <div class="en"><span class="sp">A:</span> Hi Mai Khanh! How old are you?</div>
+          <span class="vi">Chào Mai Khanh! Bạn bao nhiêu tuổi?</span>
+          <div class="en"><span class="sp">B:</span> I'm 28 years old. How about you?</div>
+          <span class="vi">Tôi 28 tuổi. Còn bạn?</span>
+          <div class="en"><span class="sp">A:</span> I'm 30 years old.</div>
+          <span class="vi">Tôi 30 tuổi.</span>
+          <div class="en"><span class="sp">B:</span> How old is your brother?</div>
+          <span class="vi">Anh trai bạn bao nhiêu tuổi?</span>
+          <div class="en"><span class="sp">A:</span> He is 25 years old.</div>
+          <span class="vi">Anh ấy 25 tuổi.</span>
+          <div class="en"><span class="sp">B:</span> Oh, he is young!</div>
+          <span class="vi" style="margin-bottom:0">Ồ, anh ấy trẻ nhỉ!</span>
+        </div>
+        <div class="vocab">
+          <div class="vocab-head">
+            <span>📒 Từ vựng đoạn 1</span>
+            <div class="listen-ctrl">
+              <button class="lc" onclick="playOnce(this,'vocab')">▶️ Đọc từ vựng</button>
+              <button class="lc loop" onclick="toggleLoop(this,'vocab')">🔁 Lặp</button>
+            </div>
+          </div>
+          <table class="voc">
+            <tr><td class="w">how old are you?</td><td class="m">bạn bao nhiêu tuổi?</td></tr>
+            <tr><td class="w">I'm 28 years old</td><td class="m">tôi 28 tuổi</td></tr>
+            <tr><td class="w">how about you?</td><td class="m">còn bạn thì sao?</td></tr>
+            <tr><td class="w">twenty-eight</td><td class="m">hai mươi tám</td></tr>
+            <tr><td class="w">thirty</td><td class="m">ba mươi</td></tr>
+            <tr><td class="w">how old is he?</td><td class="m">anh ấy bao nhiêu tuổi?</td></tr>
+            <tr><td class="w">your brother</td><td class="m">anh/em trai bạn</td></tr>
+            <tr><td class="w">he is 25</td><td class="m">anh ấy 25 tuổi</td></tr>
+            <tr><td class="w">young</td><td class="m">trẻ</td></tr>
+            <tr><td class="w">oh</td><td class="m">ồ / à</td></tr>
+          </table>
+        </div>
       </div>
 
-      <div class="tip">🎧 <b>Mẹo nghe phát âm:</b> Mở <b>Google Dịch</b>, dán từng câu, bấm nút loa 🔊 để nghe chuẩn rồi nhại theo.</div>
+      <!-- ĐOẠN 2 -->
+      <div class="listen">
+        <div class="listen-head">
+          <span class="listen-title">🗨️ Đoạn 2 — Xin số điện thoại</span>
+          <div class="listen-ctrl">
+            <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
+            <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
+          </div>
+        </div>
+        <div class="dialog">
+          <div class="en"><span class="sp">A:</span> Can I have your phone number, Mai Khanh?</div>
+          <span class="vi">Cho mình xin số điện thoại được không, Mai Khanh?</span>
+          <div class="en"><span class="sp">B:</span> Sure! My number is 0901 234 567.</div>
+          <span class="vi">Được chứ! Số của mình là 0901 234 567.</span>
+          <div class="en"><span class="sp">A:</span> Let me check — oh-nine-oh-one, two-three-four, five-six-seven?</div>
+          <span class="vi">Để mình kiểm tra — 0901, 234, 567 đúng không?</span>
+          <div class="en"><span class="sp">B:</span> That's right!</div>
+          <span class="vi">Chính xác!</span>
+          <div class="en"><span class="sp">A:</span> Thank you. I'll call you tonight.</div>
+          <span class="vi">Cảm ơn. Tối nay mình gọi cho bạn nhé.</span>
+          <div class="en"><span class="sp">B:</span> Okay, see you!</div>
+          <span class="vi" style="margin-bottom:0">Được, hẹn gặp lại!</span>
+        </div>
+        <div class="vocab">
+          <div class="vocab-head">
+            <span>📒 Từ vựng đoạn 2</span>
+            <div class="listen-ctrl">
+              <button class="lc" onclick="playOnce(this,'vocab')">▶️ Đọc từ vựng</button>
+              <button class="lc loop" onclick="toggleLoop(this,'vocab')">🔁 Lặp</button>
+            </div>
+          </div>
+          <table class="voc">
+            <tr><td class="w">can I have...?</td><td class="m">cho mình xin... được không?</td></tr>
+            <tr><td class="w">your phone number</td><td class="m">số điện thoại của bạn</td></tr>
+            <tr><td class="w">sure</td><td class="m">được chứ</td></tr>
+            <tr><td class="w">my number is...</td><td class="m">số của mình là...</td></tr>
+            <tr><td class="w">let me check</td><td class="m">để mình kiểm tra</td></tr>
+            <tr><td class="w">that's right</td><td class="m">chính xác / đúng rồi</td></tr>
+            <tr><td class="w">thank you</td><td class="m">cảm ơn</td></tr>
+            <tr><td class="w">I'll call you</td><td class="m">mình sẽ gọi cho bạn</td></tr>
+            <tr><td class="w">tonight</td><td class="m">tối nay</td></tr>
+            <tr><td class="w">see you</td><td class="m">hẹn gặp lại</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- ĐOẠN 3 -->
+      <div class="listen">
+        <div class="listen-head">
+          <span class="listen-title">🗨️ Đoạn 3 — Hỏi giá tiền</span>
+          <div class="listen-ctrl">
+            <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
+            <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
+          </div>
+        </div>
+        <div class="dialog">
+          <div class="en"><span class="sp">A:</span> How much is this coffee?</div>
+          <span class="vi">Ly cà phê này giá bao nhiêu?</span>
+          <div class="en"><span class="sp">B:</span> It's thirty thousand dong.</div>
+          <span class="vi">Nó giá 30 nghìn đồng.</span>
+          <div class="en"><span class="sp">A:</span> And how much is that cake?</div>
+          <span class="vi">Còn cái bánh kia bao nhiêu?</span>
+          <div class="en"><span class="sp">B:</span> It's forty-five thousand dong.</div>
+          <span class="vi">Nó giá 45 nghìn đồng.</span>
+          <div class="en"><span class="sp">A:</span> Okay, I'll take both.</div>
+          <span class="vi">Được, mình lấy cả hai.</span>
+          <div class="en"><span class="sp">B:</span> That's seventy-five thousand dong.</div>
+          <span class="vi" style="margin-bottom:0">Tổng cộng 75 nghìn đồng.</span>
+        </div>
+        <div class="vocab">
+          <div class="vocab-head">
+            <span>📒 Từ vựng đoạn 3</span>
+            <div class="listen-ctrl">
+              <button class="lc" onclick="playOnce(this,'vocab')">▶️ Đọc từ vựng</button>
+              <button class="lc loop" onclick="toggleLoop(this,'vocab')">🔁 Lặp</button>
+            </div>
+          </div>
+          <table class="voc">
+            <tr><td class="w">how much is it?</td><td class="m">nó giá bao nhiêu?</td></tr>
+            <tr><td class="w">this coffee</td><td class="m">ly cà phê này</td></tr>
+            <tr><td class="w">thirty thousand dong</td><td class="m">ba mươi nghìn đồng</td></tr>
+            <tr><td class="w">that cake</td><td class="m">cái bánh kia</td></tr>
+            <tr><td class="w">forty-five</td><td class="m">bốn mươi lăm</td></tr>
+            <tr><td class="w">okay</td><td class="m">được / đồng ý</td></tr>
+            <tr><td class="w">I'll take both</td><td class="m">mình lấy cả hai</td></tr>
+            <tr><td class="w">both</td><td class="m">cả hai</td></tr>
+            <tr><td class="w">seventy-five</td><td class="m">bảy mươi lăm</td></tr>
+            <tr><td class="w">thousand</td><td class="m">nghìn</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- ĐOẠN 4 -->
+      <div class="listen">
+        <div class="listen-head">
+          <span class="listen-title">🗨️ Đoạn 4 — Số phòng &amp; sĩ số lớp</span>
+          <div class="listen-ctrl">
+            <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
+            <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
+          </div>
+        </div>
+        <div class="dialog">
+          <div class="en"><span class="sp">A:</span> What's your room number, Mai Khanh?</div>
+          <span class="vi">Số phòng của bạn là mấy, Mai Khanh?</span>
+          <div class="en"><span class="sp">B:</span> My room is number 12.</div>
+          <span class="vi">Phòng mình là số 12.</span>
+          <div class="en"><span class="sp">A:</span> How many people are in your class?</div>
+          <span class="vi">Lớp bạn có bao nhiêu người?</span>
+          <div class="en"><span class="sp">B:</span> There are twenty students.</div>
+          <span class="vi">Có 20 học viên.</span>
+          <div class="en"><span class="sp">A:</span> That's a big class!</div>
+          <span class="vi">Lớp đông ghê!</span>
+          <div class="en"><span class="sp">B:</span> Yes, but it's fun.</div>
+          <span class="vi" style="margin-bottom:0">Ừ, nhưng vui lắm.</span>
+        </div>
+        <div class="vocab">
+          <div class="vocab-head">
+            <span>📒 Từ vựng đoạn 4</span>
+            <div class="listen-ctrl">
+              <button class="lc" onclick="playOnce(this,'vocab')">▶️ Đọc từ vựng</button>
+              <button class="lc loop" onclick="toggleLoop(this,'vocab')">🔁 Lặp</button>
+            </div>
+          </div>
+          <table class="voc">
+            <tr><td class="w">your room number</td><td class="m">số phòng của bạn</td></tr>
+            <tr><td class="w">number 12</td><td class="m">số 12</td></tr>
+            <tr><td class="w">how many people?</td><td class="m">bao nhiêu người?</td></tr>
+            <tr><td class="w">in your class</td><td class="m">trong lớp bạn</td></tr>
+            <tr><td class="w">there are...</td><td class="m">có (nhiều)...</td></tr>
+            <tr><td class="w">twenty students</td><td class="m">hai mươi học viên</td></tr>
+            <tr><td class="w">a big class</td><td class="m">một lớp đông</td></tr>
+            <tr><td class="w">fun</td><td class="m">vui</td></tr>
+            <tr><td class="w">yes</td><td class="m">ừ / vâng</td></tr>
+            <tr><td class="w">but</td><td class="m">nhưng</td></tr>
+          </table>
+        </div>
+      </div>
 
       <ul class="tasks">
-        <li><label><input type="checkbox" data-k="t4"><span>Đã đọc hiểu nghĩa cả đoạn hội thoại</span></label></li>
+        <li><label><input type="checkbox" data-k="t4"><span>Đã đọc hiểu nghĩa cả 4 đoạn hội thoại</span></label></li>
         <li><label><input type="checkbox" data-k="t5"><span>Đã nhại theo từng câu (chú ý cách đọc số)</span></label></li>
-        <li><label><input type="checkbox" data-k="t6"><span>Đã đọc lại cả đoạn 3–4 lần cho trôi</span></label></li>
+        <li><label><input type="checkbox" data-k="t6"><span>Đã bật 🔁 nghe lặp &amp; học thuộc từ vựng mỗi đoạn</span></label></li>
       </ul>
     </div>
   </div>
@@ -281,6 +497,213 @@ That book is __________ dong.</div>
     </div>
   </div>
 
+  <!-- PHẦN 6 -->
+  <div class="part p6">
+    <div class="head">🎤 Phần 6 — Luyện phản xạ hỏi-đáp <span class="min">Q&amp;A</span></div>
+    <div class="body">
+      <p><b>Cách luyện:</b> Đọc câu hỏi → <b>tự trả lời to</b> bằng tiếng Anh (đừng nhìn đáp án) → nghe câu trả lời mẫu → bật <b>🔁 Lặp</b> để nhại theo cho trôi. Học kỹ <b>từ vựng</b> mỗi câu.</p>
+      <div class="tip">🎧 Nút <b>🔁 tím</b>: bấm để nghe lặp liên tục (bấm lại để dừng) · <b>🔊</b> nghe riêng 1 câu / 1 từ. Cần mở bằng <b>Chrome</b> hoặc <b>Edge</b>.</div>
+
+      <!-- Q1 -->
+      <div class="qa">
+        <div class="qa-qhead">
+          <span class="qa-num">Q1.</span>
+          <span class="qa-qen">How old are you?</span>
+          <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
+        </div>
+        <div class="qa-qvi">Bạn bao nhiêu tuổi?</div>
+        <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
+        <div class="qa-aen">I'm <b>28 years old</b>. I have a younger brother, and he is 24. So I am <span class="u">four years older</span> than him.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình 28 tuổi. Mình có một em trai, và em ấy 24 tuổi. Nên mình lớn hơn em ấy bốn tuổi.</span></div>
+        <div class="qa-ctrl">
+          <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'qa')">🔁 Lặp câu hỏi + trả lời</button>
+        </div>
+        <div class="qa-voc">
+          <div class="qa-vochead">
+            <span>📒 Từ vựng trong đoạn:</span>
+            <button class="lc loop qc" onclick="qaLoop(this,'voc')">🔁 Lặp từ vựng</button>
+            <button class="lc loop qc" onclick="qaLoop(this,'vocnm')">🔁 Lặp từ vựng (không nghĩa)</button>
+          </div>
+          <div class="qvoc-wrap"><table class="qvoc">
+            <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
+            <tr><td class="w">28 years old</td><td class="ph"><span class="hint">(tu-en-ti-êt di-ơz âuld)</span><span class="ipa">/ˌtwenti eɪt jɪəz əʊld/</span></td><td class="ty">adj phr.</td><td class="mn">28 tuổi</td></tr>
+            <tr><td class="w">a younger brother</td><td class="ph"><span class="hint">(ơ dăng-gơ bra-đơ)</span><span class="ipa">/ə ˈjʌŋɡə ˈbrʌðə/</span></td><td class="ty">n phr.</td><td class="mn">một em trai</td></tr>
+            <tr><td class="w">he is 24</td><td class="ph"><span class="hint">(hi iz tu-en-ti-pho)</span><span class="ipa">/hiː ɪz ˌtwenti ˈfɔː/</span></td><td class="ty">phr.</td><td class="mn">em ấy 24 tuổi</td></tr>
+            <tr><td class="w">four years older</td><td class="ph"><span class="hint">(pho di-ơz âul-đơ)</span><span class="ipa">/fɔː jɪəz ˈəʊldə/</span></td><td class="ty">adj phr.</td><td class="mn">lớn hơn bốn tuổi</td></tr>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="qa">
+        <div class="qa-qhead">
+          <span class="qa-num">Q2.</span>
+          <span class="qa-qen">What's your phone number?</span>
+          <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
+        </div>
+        <div class="qa-qvi">Số điện thoại của bạn là gì?</div>
+        <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
+        <div class="qa-aen">Sure. <b>My phone number is 0912 345 678</b>. You can <span class="u">call me anytime</span>, or you can send me a message.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Được chứ. Số điện thoại của mình là 0912 345 678. Bạn có thể gọi cho mình bất cứ lúc nào, hoặc nhắn tin cho mình.</span></div>
+        <div class="qa-ctrl">
+          <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'qa')">🔁 Lặp câu hỏi + trả lời</button>
+        </div>
+        <div class="qa-voc">
+          <div class="qa-vochead">
+            <span>📒 Từ vựng trong đoạn:</span>
+            <button class="lc loop qc" onclick="qaLoop(this,'voc')">🔁 Lặp từ vựng</button>
+            <button class="lc loop qc" onclick="qaLoop(this,'vocnm')">🔁 Lặp từ vựng (không nghĩa)</button>
+          </div>
+          <div class="qvoc-wrap"><table class="qvoc">
+            <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
+            <tr><td class="w">sure</td><td class="ph"><span class="hint">(sua)</span><span class="ipa">/ʃɔː/</span></td><td class="ty">phr.</td><td class="mn">được chứ / chắc chắn</td></tr>
+            <tr><td class="w">my phone number is</td><td class="ph"><span class="hint">(mai phâun năm-bơ iz)</span><span class="ipa">/maɪ ˈfəʊn ˌnʌmbə ɪz/</span></td><td class="ty">phr.</td><td class="mn">số điện thoại của mình là</td></tr>
+            <tr><td class="w">call me anytime</td><td class="ph"><span class="hint">(côl mi e-ni-taim)</span><span class="ipa">/kɔːl miː ˈeni taɪm/</span></td><td class="ty">v phr.</td><td class="mn">gọi cho mình bất cứ lúc nào</td></tr>
+            <tr><td class="w">send me a message</td><td class="ph"><span class="hint">(sen mi ơ me-sịt)</span><span class="ipa">/send miː ə ˈmesɪdʒ/</span></td><td class="ty">v phr.</td><td class="mn">nhắn tin cho mình</td></tr>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="qa">
+        <div class="qa-qhead">
+          <span class="qa-num">Q3.</span>
+          <span class="qa-qen">How many people are there in your family?</span>
+          <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
+        </div>
+        <div class="qa-qvi">Gia đình bạn có bao nhiêu người?</div>
+        <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
+        <div class="qa-aen"><b>There are four people in my family</b>. I <span class="u">live with my parents</span> and my younger brother. We are a small, happy family.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Gia đình mình có bốn người. Mình sống với bố mẹ và em trai. Nhà mình là một gia đình nhỏ, hạnh phúc.</span></div>
+        <div class="qa-ctrl">
+          <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'qa')">🔁 Lặp câu hỏi + trả lời</button>
+        </div>
+        <div class="qa-voc">
+          <div class="qa-vochead">
+            <span>📒 Từ vựng trong đoạn:</span>
+            <button class="lc loop qc" onclick="qaLoop(this,'voc')">🔁 Lặp từ vựng</button>
+            <button class="lc loop qc" onclick="qaLoop(this,'vocnm')">🔁 Lặp từ vựng (không nghĩa)</button>
+          </div>
+          <div class="qvoc-wrap"><table class="qvoc">
+            <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
+            <tr><td class="w">there are four people</td><td class="ph"><span class="hint">(đe a pho pi-pồ)</span><span class="ipa">/ðeər ə fɔː ˈpiːpl/</span></td><td class="ty">phr.</td><td class="mn">có bốn người</td></tr>
+            <tr><td class="w">in my family</td><td class="ph"><span class="hint">(in mai phe-mơ-li)</span><span class="ipa">/ɪn maɪ ˈfæməli/</span></td><td class="ty">phr.</td><td class="mn">trong gia đình mình</td></tr>
+            <tr><td class="w">live with my parents</td><td class="ph"><span class="hint">(liv với mai pe-rơnts)</span><span class="ipa">/lɪv wɪð maɪ ˈpeərənts/</span></td><td class="ty">v phr.</td><td class="mn">sống với bố mẹ</td></tr>
+            <tr><td class="w">a happy family</td><td class="ph"><span class="hint">(ơ he-pi phe-mơ-li)</span><span class="ipa">/ə ˈhæpi ˈfæməli/</span></td><td class="ty">n phr.</td><td class="mn">một gia đình hạnh phúc</td></tr>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="qa">
+        <div class="qa-qhead">
+          <span class="qa-num">Q4.</span>
+          <span class="qa-qen">What year were you born?</span>
+          <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
+        </div>
+        <div class="qa-qvi">Bạn sinh năm nào?</div>
+        <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
+        <div class="qa-aen"><b>I was born in 1998</b>. That means I am <span class="u">28 years old</span> this year. My birthday is in June.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình sinh năm 1998. Tức là năm nay mình 28 tuổi. Sinh nhật mình vào tháng Sáu.</span></div>
+        <div class="qa-ctrl">
+          <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'qa')">🔁 Lặp câu hỏi + trả lời</button>
+        </div>
+        <div class="qa-voc">
+          <div class="qa-vochead">
+            <span>📒 Từ vựng trong đoạn:</span>
+            <button class="lc loop qc" onclick="qaLoop(this,'voc')">🔁 Lặp từ vựng</button>
+            <button class="lc loop qc" onclick="qaLoop(this,'vocnm')">🔁 Lặp từ vựng (không nghĩa)</button>
+          </div>
+          <div class="qvoc-wrap"><table class="qvoc">
+            <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
+            <tr><td class="w">I was born in 1998</td><td class="ph"><span class="hint">(ai woz bon in nain-tin nai-nơ-ti-êt)</span><span class="ipa">/aɪ wəz bɔːn ɪn ˌnaɪntiːn ˌnaɪnti ˈeɪt/</span></td><td class="ty">phr.</td><td class="mn">mình sinh năm 1998</td></tr>
+            <tr><td class="w">that means</td><td class="ph"><span class="hint">(đét min-z)</span><span class="ipa">/ðæt miːnz/</span></td><td class="ty">phr.</td><td class="mn">tức là / điều đó nghĩa là</td></tr>
+            <tr><td class="w">28 years old</td><td class="ph"><span class="hint">(tu-en-ti-êt di-ơz âuld)</span><span class="ipa">/ˌtwenti eɪt jɪəz əʊld/</span></td><td class="ty">adj phr.</td><td class="mn">28 tuổi</td></tr>
+            <tr><td class="w">my birthday is in June</td><td class="ph"><span class="hint">(mai bớc-đây iz in dun)</span><span class="ipa">/maɪ ˈbɜːθdeɪ ɪz ɪn dʒuːn/</span></td><td class="ty">phr.</td><td class="mn">sinh nhật mình vào tháng Sáu</td></tr>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="qa">
+        <div class="qa-qhead">
+          <span class="qa-num">Q5.</span>
+          <span class="qa-qen">What's your house number?</span>
+          <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
+        </div>
+        <div class="qa-qvi">Nhà bạn số mấy?</div>
+        <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
+        <div class="qa-aen">I live in <b>house number 45</b>. It is a small house <span class="u">on a quiet street</span>. My room is number 3, upstairs.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình sống ở nhà số 45. Đó là một căn nhà nhỏ trên một con phố yên tĩnh. Phòng mình là số 3, ở trên gác.</span></div>
+        <div class="qa-ctrl">
+          <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'qa')">🔁 Lặp câu hỏi + trả lời</button>
+        </div>
+        <div class="qa-voc">
+          <div class="qa-vochead">
+            <span>📒 Từ vựng trong đoạn:</span>
+            <button class="lc loop qc" onclick="qaLoop(this,'voc')">🔁 Lặp từ vựng</button>
+            <button class="lc loop qc" onclick="qaLoop(this,'vocnm')">🔁 Lặp từ vựng (không nghĩa)</button>
+          </div>
+          <div class="qvoc-wrap"><table class="qvoc">
+            <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
+            <tr><td class="w">house number 45</td><td class="ph"><span class="hint">(haos năm-bơ pho-ti-phai)</span><span class="ipa">/haʊs ˈnʌmbə ˌfɔːti ˈfaɪv/</span></td><td class="ty">n phr.</td><td class="mn">nhà số 45</td></tr>
+            <tr><td class="w">a small house</td><td class="ph"><span class="hint">(ơ xmôl haos)</span><span class="ipa">/ə smɔːl haʊs/</span></td><td class="ty">n phr.</td><td class="mn">một căn nhà nhỏ</td></tr>
+            <tr><td class="w">on a quiet street</td><td class="ph"><span class="hint">(on ơ quai-ợt xtrít)</span><span class="ipa">/ɒn ə ˈkwaɪət striːt/</span></td><td class="ty">phr.</td><td class="mn">trên một con phố yên tĩnh</td></tr>
+            <tr><td class="w">my room is number 3</td><td class="ph"><span class="hint">(mai rum iz năm-bơ thri)</span><span class="ipa">/maɪ ruːm ɪz ˈnʌmbə θriː/</span></td><td class="ty">phr.</td><td class="mn">phòng mình là số 3</td></tr>
+          </table></div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="qa">
+        <div class="qa-qhead">
+          <span class="qa-num">Q6.</span>
+          <span class="qa-qen">How much is your English class?</span>
+          <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
+        </div>
+        <div class="qa-qvi">Lớp tiếng Anh của bạn giá bao nhiêu?</div>
+        <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
+        <div class="qa-aen">My English class is <span class="u">not expensive</span>. It costs about <b>five hundred thousand dong</b> a month. For me, it is very good value.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Lớp tiếng Anh của mình không đắt. Nó tốn khoảng năm trăm nghìn đồng một tháng. Với mình, nó rất đáng tiền.</span></div>
+        <div class="qa-ctrl">
+          <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
+          <button class="lc loop qc" onclick="qaLoop(this,'qa')">🔁 Lặp câu hỏi + trả lời</button>
+        </div>
+        <div class="qa-voc">
+          <div class="qa-vochead">
+            <span>📒 Từ vựng trong đoạn:</span>
+            <button class="lc loop qc" onclick="qaLoop(this,'voc')">🔁 Lặp từ vựng</button>
+            <button class="lc loop qc" onclick="qaLoop(this,'vocnm')">🔁 Lặp từ vựng (không nghĩa)</button>
+          </div>
+          <div class="qvoc-wrap"><table class="qvoc">
+            <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
+            <tr><td class="w">not expensive</td><td class="ph"><span class="hint">(not ích-xpen-siv)</span><span class="ipa">/nɒt ɪkˈspensɪv/</span></td><td class="ty">adj phr.</td><td class="mn">không đắt</td></tr>
+            <tr><td class="w">it costs about</td><td class="ph"><span class="hint">(it costs ơ-baot)</span><span class="ipa">/ɪt kɒsts əˈbaʊt/</span></td><td class="ty">v phr.</td><td class="mn">nó tốn khoảng</td></tr>
+            <tr><td class="w">five hundred thousand dong</td><td class="ph"><span class="hint">(phai han-đrợd thao-zơnd đông)</span><span class="ipa">/faɪv ˈhʌndrəd ˈθaʊzənd dɒŋ/</span></td><td class="ty">n phr.</td><td class="mn">năm trăm nghìn đồng</td></tr>
+            <tr><td class="w">good value</td><td class="ph"><span class="hint">(gút va-liu)</span><span class="ipa">/ɡʊd ˈvæljuː/</span></td><td class="ty">n phr.</td><td class="mn">đáng tiền / đáng giá</td></tr>
+          </table></div>
+        </div>
+      </div>
+
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-k="qa1"><span>Đã tự trả lời to cả 6 câu hỏi (không nhìn đáp án)</span></label></li>
+        <li><label><input type="checkbox" data-k="qa2"><span>Đã bật 🔁 nghe lặp &amp; nhại theo câu trả lời mẫu</span></label></li>
+        <li><label><input type="checkbox" data-k="qa3"><span>Đã học thuộc từ vựng trong các đoạn</span></label></li>
+      </ul>
+    </div>
+  </div>
+
   <div class="goal">🎯 <b>Mục tiêu hôm nay:</b> Đếm trôi chảy 1–100 &amp; nói được tuổi, số điện thoại của bạn mà không phải dừng lại nghĩ.</div>
 
   <div class="nav">
@@ -317,21 +740,96 @@ document.querySelectorAll('#biling table.bl td').forEach(td=>td.addEventListener
 document.querySelectorAll('ol.speak .a').forEach(a=>a.addEventListener('click',()=>a.classList.add('reveal')));
 function revealAll(){document.querySelectorAll('ol.speak .a').forEach(a=>a.classList.add('reveal'));}
 function hideAll(){document.querySelectorAll('ol.speak .a').forEach(a=>a.classList.remove('reveal'));}
-/* ---- Loa đọc tiếng Anh ---- */
-function speak(t){
+/* ---- Loa đọc (TTS) ---- */
+function clean(s){return s.replace(/🔊/g,'').replace(/^\s*[AB]:\s*/,'').replace(/^\s*→\s*/,'').trim();}
+function speak(t,lang){
   if(!('speechSynthesis' in window)){alert('Trình duyệt chưa hỗ trợ đọc. Hãy mở bằng Chrome hoặc Edge.');return;}
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;speechSynthesis.speak(u);
+  seqStop();
+  const u=new SpeechSynthesisUtterance(t);u.lang=lang||'en-US';u.rate=0.9;speechSynthesis.speak(u);
 }
-function mkSpk(t){const b=document.createElement('button');b.className='spk';b.type='button';b.textContent='🔊';b.title='Nghe';
-  b.addEventListener('click',e=>{e.stopPropagation();e.preventDefault();speak(t);});return b;}
-function clean(s){return s.replace(/^\s*[AB]:\s*/,'').replace(/^\s*→\s*/,'').trim();}
-document.querySelectorAll('.dialog .en').forEach(el=>el.appendChild(mkSpk(clean(el.textContent))));
+function mkSpk(t,lang){const b=document.createElement('button');b.className='spk';b.type='button';b.textContent='🔊';b.title='Nghe';
+  b.addEventListener('click',e=>{e.stopPropagation();e.preventDefault();speak(t,lang);});return b;}
+
+/* ---- Trình phát tuần tự & lặp lại (Phần 2) ---- */
+let seq={active:false,loop:false,items:[],i:0};
+function seqStop(){
+  seq.active=false;seq.loop=false;
+  try{speechSynthesis.cancel();}catch(e){}
+  document.querySelectorAll('.lc.on').forEach(b=>{if(b.dataset.orig){b.textContent=b.dataset.orig;}b.classList.remove('on');});
+}
+function seqStep(){
+  if(!seq.active)return;
+  if(seq.i>=seq.items.length){
+    if(seq.loop){seq.i=0;}else{seqStop();return;}
+  }
+  const it=seq.items[seq.i++];
+  const u=new SpeechSynthesisUtterance(it.t);
+  u.lang=it.l||'en-US';u.rate=0.9;
+  u.onend=()=>{if(seq.active)setTimeout(seqStep,it.gap||280);};
+  u.onerror=()=>{if(seq.active)setTimeout(seqStep,200);};
+  speechSynthesis.speak(u);
+}
+function seqPlay(items,loop,btn){
+  seqStop();
+  if(!items.length)return;
+  seq={active:true,loop:loop,items:items,i:0};
+  if(btn){btn.classList.add('on');if(loop&&btn.classList.contains('loop')){btn.dataset.orig=btn.dataset.orig||btn.textContent;btn.textContent='⏹ Dừng';}}
+  setTimeout(()=>{if(seq.active)seqStep();},90);
+}
+function dialogItems(bl){return [...bl.querySelectorAll('.dialog .en')].map(el=>({t:el.dataset.say||clean(el.textContent),l:'en-US',gap:360}));}
+function vocabItems(bl){
+  const items=[];
+  bl.querySelectorAll('table.voc tr').forEach(tr=>{
+    const w=tr.querySelector('td.w'),m=tr.querySelector('td.m');
+    if(w)items.push({t:w.dataset.say||clean(w.textContent),l:'en-US',gap:150});
+    if(m)items.push({t:m.dataset.say||m.textContent.trim(),l:'vi-VN',gap:480});
+  });
+  return items;
+}
+function playOnce(btn,kind){const bl=btn.closest('.listen');seqPlay(kind==='vocab'?vocabItems(bl):dialogItems(bl),false,btn);}
+function toggleLoop(btn,kind){if(btn.classList.contains('on')){seqStop();return;}const bl=btn.closest('.listen');seqPlay(kind==='vocab'?vocabItems(bl):dialogItems(bl),true,btn);}
+
+/* ---- Gắn nút loa 🔊 ---- */
+document.querySelectorAll('.dialog .en').forEach(el=>{const t=clean(el.textContent);el.dataset.say=t;el.appendChild(mkSpk(t));});
 document.querySelectorAll('.part.p1 table td:first-child').forEach(td=>td.appendChild(mkSpk(clean(td.textContent))));
 document.querySelectorAll('.numgrid .n').forEach(n=>{const b=n.querySelector('b');if(b)n.appendChild(mkSpk(b.textContent.split('/')[0].trim()));});
 document.querySelectorAll('.bl td.en').forEach(td=>td.appendChild(mkSpk(clean(td.textContent))));
 document.querySelectorAll('ol.speak .a').forEach(a=>a.appendChild(mkSpk(clean(a.textContent))));
 document.querySelectorAll('.example').forEach(ex=>ex.appendChild(mkSpk(clean(ex.textContent))));
+document.querySelectorAll('table.voc td.w').forEach(td=>{const t=clean(td.textContent);td.dataset.say=t;td.appendChild(mkSpk(t,'en-US'));});
+document.querySelectorAll('table.voc td.m').forEach(td=>{const t=td.textContent.trim();td.dataset.say=t;td.appendChild(mkSpk(t,'vi-VN'));});
+window.addEventListener('beforeunload',()=>{try{speechSynthesis.cancel();}catch(e){}});
+
+/* ---- Phần 6: Luyện phản xạ hỏi-đáp (Q&A) ---- */
+function qaItemsFor(qa,mode){
+  const items=[];
+  const q=qa.querySelector('.qa-qen'), a=qa.querySelector('.qa-aen'), av=qa.querySelector('.qa-avi .t');
+  const qt=q?(q.dataset.say||clean(q.textContent)):'';
+  const at=a?(a.dataset.say||clean(a.textContent)):'';
+  const vt=av?(av.dataset.say||av.textContent.trim()):'';
+  if(mode==='q')items.push({t:qt,l:'en-US',gap:600});
+  else if(mode==='a')items.push({t:at,l:'en-US',gap:600});
+  else if(mode==='qa'){items.push({t:qt,l:'en-US',gap:650});items.push({t:at,l:'en-US',gap:650});}
+  else if(mode==='ad'){items.push({t:at,l:'en-US',gap:450});if(vt)items.push({t:vt,l:'vi-VN',gap:650});}
+  else if(mode==='voc'||mode==='vocnm'){
+    qa.querySelectorAll('table.qvoc tr').forEach(tr=>{
+      const w=tr.querySelector('td.w'),m=tr.querySelector('td.mn');
+      if(w)items.push({t:w.dataset.say||clean(w.textContent),l:'en-US',gap:mode==='voc'?170:330});
+      if(mode==='voc'&&m)items.push({t:m.dataset.say||m.textContent.trim(),l:'vi-VN',gap:480});
+    });
+  }
+  return items;
+}
+function qaLoop(btn,mode){
+  if(btn.classList.contains('on')){seqStop();return;}
+  const qa=btn.closest('.qa');
+  if(qa)seqPlay(qaItemsFor(qa,mode),true,btn);
+}
+document.querySelectorAll('.qa-qen').forEach(el=>{const t=clean(el.textContent);el.dataset.say=t;el.appendChild(mkSpk(t,'en-US'));});
+document.querySelectorAll('.qa-aen').forEach(el=>{const t=clean(el.textContent);el.dataset.say=t;el.appendChild(mkSpk(t,'en-US'));});
+document.querySelectorAll('.qa-avi .t').forEach(el=>{el.dataset.say=el.textContent.trim();});
+document.querySelectorAll('table.qvoc td.w').forEach(td=>{const t=clean(td.textContent);td.dataset.say=t;td.appendChild(mkSpk(t,'en-US'));});
+
 load();prog();
 </script>
 </body>
