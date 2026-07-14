@@ -90,6 +90,11 @@
   @keyframes lcpulse{0%,100%{opacity:1}50%{opacity:.5}}
   .listen .dialog{margin:0;border:none;border-radius:0;background:transparent;padding:14px 16px}
   .listen .vocab{border-top:1px dashed var(--line);padding:12px 16px;background:#0a1120}
+  .listen.hide-en .dialog .en:not(.reveal){filter:blur(6px);cursor:pointer;user-select:none}
+  .listen.hide-en .dialog .en.reveal{filter:none;cursor:default}
+  .hide-en-toggle{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px;margin:10px 0 4px}
+  .hide-en-toggle:hover{background:#475569}
+  .hide-en-toggle.active{background:var(--p2);color:#052e12;border-color:var(--p2);font-weight:700}
   .vocab-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
   .vocab-head>span{font-weight:600;color:var(--warn);font-size:13.5px}
   table.voc{width:100%;border-collapse:collapse;font-size:14px;margin:0}
@@ -196,6 +201,7 @@
     <div class="body">
       <p><b>Cách luyện:</b> Nghe cả đoạn → nhại theo <b>từng câu</b> đúng ngữ điệu → bật <b>🔁 Nghe lặp</b> để nghe đi nghe lại cho trôi. Học xong đoạn nào, luyện luôn <b>bảng từ vựng</b> của đoạn đó.</p>
       <div class="tip">🎧 <b>Nút điều khiển:</b> <b>▶️</b> nghe 1 lần · <b>🔁</b> nghe lặp liên tục (bấm lại để dừng) · <b>🔊</b> nghe riêng 1 câu / 1 từ. Cần mở bằng <b>Chrome</b> hoặc <b>Edge</b>.</div>
+      <button class="hide-en-toggle" id="hideEnBtn" onclick="toggleHideEn()">🙈 Ẩn tiếng Anh — nhìn tiếng Việt tự nói tiếng Anh</button>
 
       <!-- ĐOẠN 1 -->
       <div class="listen">
@@ -807,6 +813,20 @@ document.querySelectorAll('.qa-aen').forEach(el=>{const t=clean(el.textContent);
 document.querySelectorAll('.qa-avi .t').forEach(el=>{el.dataset.say=el.textContent.trim();});
 document.querySelectorAll('table.qvoc td.w').forEach(td=>{const t=clean(td.textContent);td.dataset.say=t;td.appendChild(mkSpk(t,'en-US'));});
 
+let hideEnOn=localStorage.getItem('hideEnOn')==='1';
+function applyHideEn(){
+  document.querySelectorAll('.part.p2 .listen').forEach(l=>l.classList.toggle('hide-en',hideEnOn));
+  const btn=document.getElementById('hideEnBtn');
+  if(btn){btn.textContent=hideEnOn?'👁️ Hiện tiếng Anh':'🙈 Ẩn tiếng Anh — nhìn tiếng Việt tự nói tiếng Anh';btn.classList.toggle('active',hideEnOn);}
+}
+function toggleHideEn(){
+  hideEnOn=!hideEnOn;
+  localStorage.setItem('hideEnOn',hideEnOn?'1':'0');
+  document.querySelectorAll('.part.p2 .dialog .en').forEach(e=>e.classList.remove('reveal'));
+  applyHideEn();
+}
+document.querySelectorAll('.part.p2 .dialog .en').forEach(el=>el.addEventListener('click',()=>{if(hideEnOn)el.classList.add('reveal');}));
+applyHideEn();
 load();prog();
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bài học Ngày 1 — Chào hỏi & Giới thiệu bản thân</title>
+<title>Bài học Ngày 28 — Kể kỷ niệm tuổi thơ</title>
 <style>
   :root{
     --bg:#0f172a; --card:#1e293b; --card2:#243449; --ink:#e2e8f0; --muted:#94a3b8;
@@ -37,6 +37,9 @@
   th{background:var(--card2)}
   td b{color:#fff}
   .ipa{color:var(--warn);font-style:normal}
+  .numgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:10px 0}
+  .numgrid .n{background:#0b1324;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .numgrid .n b{color:#fff;font-size:15px} .numgrid .n span{color:var(--muted);font-size:13px;display:block}
   .dialog{background:#0b1324;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:15px}
   .dialog .en{color:#fff;font-weight:500}
   .dialog .vi{color:var(--muted);font-size:13.5px;margin-bottom:10px;display:block}
@@ -87,11 +90,6 @@
   @keyframes lcpulse{0%,100%{opacity:1}50%{opacity:.5}}
   .listen .dialog{margin:0;border:none;border-radius:0;background:transparent;padding:14px 16px}
   .listen .vocab{border-top:1px dashed var(--line);padding:12px 16px;background:#0a1120}
-  .listen.hide-en .dialog .en:not(.reveal){filter:blur(6px);cursor:pointer;user-select:none}
-  .listen.hide-en .dialog .en.reveal{filter:none;cursor:default}
-  .hide-en-toggle{background:#33415544;color:var(--ink);border:1px solid var(--line);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px;margin:10px 0 4px}
-  .hide-en-toggle:hover{background:#475569}
-  .hide-en-toggle.active{background:var(--p2);color:#052e12;border-color:var(--p2);font-weight:700}
   .vocab-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
   .vocab-head>span{font-weight:600;color:var(--warn);font-size:13.5px}
   table.voc{width:100%;border-collapse:collapse;font-size:14px;margin:0}
@@ -134,9 +132,9 @@
 </head>
 <body>
 <header>
-  <div class="crumb">TUẦN 1 · NGÀY 1 (THỨ 2)</div>
-  <h1>👋 Chào hỏi &amp; Giới thiệu bản thân</h1>
-  <p>Trình độ A1 · 45 phút · Greetings &amp; Self-introduction</p>
+  <div class="crumb">TUẦN 5 · NGÀY 28 (THỨ 5)</div>
+  <h1>🧸 Kể kỷ niệm tuổi thơ</h1>
+  <p>Trình độ A2 · 45 phút · Childhood Memories</p>
 </header>
 
 <div class="bar">
@@ -152,34 +150,42 @@
   <div class="part p1">
     <div class="head">🟦 Phần 1 — Từ vựng &amp; mẫu câu <span class="min">15 phút</span></div>
     <div class="body">
-      <p>Đọc to mỗi câu <b>3 lần</b>, vừa đọc vừa hiểu nghĩa.</p>
+      <p>Đọc to mỗi từ <b>3 lần</b>, vừa đọc vừa hiểu nghĩa.</p>
 
-      <h3>A. Chào hỏi (Greetings)</h3>
-      <table>
-        <tr><th>Tiếng Anh</th><th>Phiên âm</th><th>Nghĩa</th></tr>
-        <tr><td><b>Hello / Hi</b></td><td class="ipa">/həˈloʊ/ /haɪ/</td><td>Xin chào</td></tr>
-        <tr><td><b>Good morning</b></td><td class="ipa">/ɡʊd ˈmɔːrnɪŋ/</td><td>Chào buổi sáng</td></tr>
-        <tr><td><b>Nice to meet you</b></td><td class="ipa">/naɪs tə miːt juː/</td><td>Rất vui được gặp bạn</td></tr>
-        <tr><td><b>How are you?</b></td><td class="ipa">/haʊ ɑːr juː/</td><td>Bạn khỏe không?</td></tr>
-        <tr><td><b>I'm fine, thank you</b></td><td class="ipa">/aɪm faɪn θæŋk juː/</td><td>Tôi khỏe, cảm ơn</td></tr>
-      </table>
+      <h3>A. Kỷ niệm tuổi thơ (Childhood memories)</h3>
+      <div class="numgrid">
+        <div class="n"><b>when I was young</b> <span>khi tôi còn nhỏ</span></div>
+        <div class="n"><b>childhood</b> <span>tuổi thơ</span></div>
+        <div class="n"><b>used to</b> <span>đã từng (thói quen xưa)</span></div>
+        <div class="n"><b>grow up</b> <span>lớn lên</span></div>
+        <div class="n"><b>memory / memories</b> <span>kỷ niệm</span></div>
+        <div class="n"><b>playground</b> <span>sân chơi</span></div>
+        <div class="n"><b>neighborhood</b> <span>khu xóm/khu phố</span></div>
+        <div class="n"><b>best friend</b> <span>bạn thân nhất</span></div>
+        <div class="n"><b>favorite toy</b> <span>món đồ chơi yêu thích</span></div>
+        <div class="n"><b>miss</b> <span>nhớ (ai/gì)</span></div>
+        <div class="n"><b>remember</b> <span>nhớ lại</span></div>
+        <div class="n"><b>fly a kite</b> <span>thả diều</span></div>
+        <div class="n"><b>hide-and-seek</b> <span>trò trốn tìm</span></div>
+        <div class="n"><b>hometown</b> <span>quê nhà</span></div>
+      </div>
 
-      <h3>B. Giới thiệu bản thân (Introducing yourself)</h3>
+      <h3>B. Mẫu câu kể kỷ niệm tuổi thơ</h3>
       <table>
         <tr><th>Tiếng Anh</th><th>Nghĩa</th></tr>
-        <tr><td><b>My name is Mai Khanh</b></td><td>Tôi tên là Mai Khanh</td></tr>
-        <tr><td><b>I'm from Vietnam</b></td><td>Tôi đến từ Việt Nam</td></tr>
-        <tr><td><b>I live in Ho Chi Minh City</b></td><td>Tôi sống ở TP.HCM</td></tr>
-        <tr><td><b>I'm 30 years old</b></td><td>Tôi 30 tuổi</td></tr>
-        <tr><td><b>I work as a developer</b></td><td>Tôi làm lập trình viên</td></tr>
-        <tr><td><b>Nice to meet you too</b></td><td>Tôi cũng rất vui được gặp bạn</td></tr>
+        <tr><td><b>I used to play in the playground.</b></td><td>Hồi đó tôi hay chơi ở sân chơi.</td></tr>
+        <tr><td><b>When I was young, I lived in a small town.</b></td><td>Khi tôi còn nhỏ, tôi sống ở một thị trấn nhỏ.</td></tr>
+        <tr><td><b>I grew up in the countryside.</b></td><td>Tôi lớn lên ở nông thôn.</td></tr>
+        <tr><td><b>My favorite toy was a teddy bear.</b></td><td>Món đồ chơi yêu thích của tôi là một con gấu bông.</td></tr>
+        <tr><td><b>I miss my childhood friends.</b></td><td>Tôi nhớ những người bạn thời thơ ấu.</td></tr>
+        <tr><td><b>Do you remember your best friend growing up?</b></td><td>Bạn có nhớ người bạn thân nhất khi lớn lên không?</td></tr>
       </table>
-
-      <div class="tip">✍️ <b>Việc cần làm:</b> Chép 12 cụm này ra sổ tay, thay bằng <b>thông tin thật của bạn</b> (tên, quê, tuổi, nghề).</div>
+      <div class="tip">🧸 <b>Mẹo:</b> <b>used to + động từ nguyên mẫu</b> diễn tả thói quen/tình trạng trong quá khứ mà bây giờ <b>không còn nữa</b> (<i>I used to play outside every day</i> — hồi xưa hay chơi, giờ không còn nữa). Còn thì <b>quá khứ đơn</b> (simple past) chỉ dùng cho <b>một sự việc xảy ra một lần</b> (<i>I broke my arm when I was seven</i> — chỉ xảy ra 1 lần, không lặp lại).</div>
 
       <ul class="tasks">
-        <li><label><input type="checkbox" data-k="t1"><span>Đã đọc to &amp; hiểu nghĩa 12 cụm từ vựng</span></label></li>
-        <li><label><input type="checkbox" data-k="t2"><span>Đã chép ra sổ &amp; thay thông tin của mình vào</span></label></li>
+        <li><label><input type="checkbox" data-k="t1"><span>Đã đọc to &amp; thuộc 14 từ vựng kỷ niệm tuổi thơ</span></label></li>
+        <li><label><input type="checkbox" data-k="t2"><span>Đã học mẫu câu kể kỷ niệm tuổi thơ</span></label></li>
+        <li><label><input type="checkbox" data-k="t3"><span>Đã hiểu cách dùng used to &amp; phân biệt với simple past</span></label></li>
       </ul>
     </div>
   </div>
@@ -190,30 +196,29 @@
     <div class="body">
       <p><b>Cách luyện:</b> Nghe cả đoạn → nhại theo <b>từng câu</b> đúng ngữ điệu → bật <b>🔁 Nghe lặp</b> để nghe đi nghe lại cho trôi. Học xong đoạn nào, luyện luôn <b>bảng từ vựng</b> của đoạn đó.</p>
       <div class="tip">🎧 <b>Nút điều khiển:</b> <b>▶️</b> nghe 1 lần · <b>🔁</b> nghe lặp liên tục (bấm lại để dừng) · <b>🔊</b> nghe riêng 1 câu / 1 từ. Cần mở bằng <b>Chrome</b> hoặc <b>Edge</b>.</div>
-      <button class="hide-en-toggle" id="hideEnBtn" onclick="toggleHideEn()">🙈 Ẩn tiếng Anh — nhìn tiếng Việt tự nói tiếng Anh</button>
 
       <!-- ĐOẠN 1 -->
       <div class="listen">
         <div class="listen-head">
-          <span class="listen-title">🗨️ Đoạn 1 — Chào hỏi &amp; làm quen</span>
+          <span class="listen-title">🗨️ Đoạn 1 — Nơi tôi lớn lên</span>
           <div class="listen-ctrl">
             <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
             <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
           </div>
         </div>
         <div class="dialog">
-          <div class="en"><span class="sp">A:</span> Hello! Nice to meet you.</div>
-          <span class="vi">Xin chào! Rất vui được gặp bạn.</span>
-          <div class="en"><span class="sp">B:</span> Hi! Nice to meet you too. What's your name?</div>
-          <span class="vi">Chào! Tôi cũng rất vui. Bạn tên gì?</span>
-          <div class="en"><span class="sp">A:</span> My name is Anna. And you?</div>
-          <span class="vi">Tôi tên là Anna. Còn bạn?</span>
-          <div class="en"><span class="sp">B:</span> I'm Mai Khanh.</div>
-          <span class="vi">Tôi là Mai Khanh.</span>
-          <div class="en"><span class="sp">A:</span> How are you today, Mai Khanh?</div>
-          <span class="vi">Hôm nay bạn khỏe không, Mai Khanh?</span>
-          <div class="en"><span class="sp">B:</span> I'm fine, thank you. And you?</div>
-          <span class="vi" style="margin-bottom:0">Tôi khỏe, cảm ơn. Còn bạn?</span>
+          <div class="en"><span class="sp">A:</span> Where did you grow up?</div>
+          <span class="vi">Bạn lớn lên ở đâu vậy?</span>
+          <div class="en"><span class="sp">B:</span> I grew up in a small town near the sea.</div>
+          <span class="vi">Tôi lớn lên ở một thị trấn nhỏ gần biển.</span>
+          <div class="en"><span class="sp">A:</span> That sounds nice. Did you like it there?</div>
+          <span class="vi">Nghe hay đó. Bạn có thích sống ở đó không?</span>
+          <div class="en"><span class="sp">B:</span> Yes, I used to swim in the sea every summer.</div>
+          <span class="vi">Có, hồi đó tôi hay bơi ở biển mỗi mùa hè.</span>
+          <div class="en"><span class="sp">A:</span> Do you miss your hometown?</div>
+          <span class="vi">Bạn có nhớ quê nhà không?</span>
+          <div class="en"><span class="sp">B:</span> Yes, I miss it a lot.</div>
+          <span class="vi" style="margin-bottom:0">Có, tôi nhớ nó nhiều lắm.</span>
         </div>
         <div class="vocab">
           <div class="vocab-head">
@@ -224,16 +229,14 @@
             </div>
           </div>
           <table class="voc">
-            <tr><td class="w">hello / hi</td><td class="m">xin chào</td></tr>
-            <tr><td class="w">nice to meet you</td><td class="m">rất vui được gặp bạn</td></tr>
-            <tr><td class="w">too</td><td class="m">cũng vậy</td></tr>
-            <tr><td class="w">what's your name?</td><td class="m">bạn tên gì?</td></tr>
-            <tr><td class="w">my name is...</td><td class="m">tôi tên là...</td></tr>
-            <tr><td class="w">and you?</td><td class="m">còn bạn?</td></tr>
-            <tr><td class="w">how are you?</td><td class="m">bạn khỏe không?</td></tr>
-            <tr><td class="w">I'm fine</td><td class="m">tôi khỏe</td></tr>
-            <tr><td class="w">thank you</td><td class="m">cảm ơn</td></tr>
-            <tr><td class="w">today</td><td class="m">hôm nay</td></tr>
+            <tr><td class="w">grow up</td><td class="m">lớn lên</td></tr>
+            <tr><td class="w">small town</td><td class="m">thị trấn nhỏ</td></tr>
+            <tr><td class="w">near the sea</td><td class="m">gần biển</td></tr>
+            <tr><td class="w">used to swim</td><td class="m">hồi đó hay bơi</td></tr>
+            <tr><td class="w">every summer</td><td class="m">mỗi mùa hè</td></tr>
+            <tr><td class="w">hometown</td><td class="m">quê nhà</td></tr>
+            <tr><td class="w">miss</td><td class="m">nhớ</td></tr>
+            <tr><td class="w">a lot</td><td class="m">nhiều</td></tr>
           </table>
         </div>
       </div>
@@ -241,25 +244,25 @@
       <!-- ĐOẠN 2 -->
       <div class="listen">
         <div class="listen-head">
-          <span class="listen-title">🗨️ Đoạn 2 — Quê quán &amp; nơi ở</span>
+          <span class="listen-title">🗨️ Đoạn 2 — Kỷ niệm chơi đùa thời thơ ấu</span>
           <div class="listen-ctrl">
             <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
             <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
           </div>
         </div>
         <div class="dialog">
-          <div class="en"><span class="sp">A:</span> Where are you from, Mai Khanh?</div>
-          <span class="vi">Bạn đến từ đâu, Mai Khanh?</span>
-          <div class="en"><span class="sp">B:</span> I'm from Vietnam.</div>
-          <span class="vi">Tôi đến từ Việt Nam.</span>
-          <div class="en"><span class="sp">A:</span> Where do you live?</div>
-          <span class="vi">Bạn sống ở đâu?</span>
-          <div class="en"><span class="sp">B:</span> I live in Ho Chi Minh City. And you?</div>
-          <span class="vi">Tôi sống ở TP.HCM. Còn bạn?</span>
-          <div class="en"><span class="sp">A:</span> I'm from Canada, but I live in Hanoi now.</div>
-          <span class="vi">Tôi đến từ Canada, nhưng giờ tôi sống ở Hà Nội.</span>
-          <div class="en"><span class="sp">B:</span> That's nice!</div>
-          <span class="vi" style="margin-bottom:0">Hay quá!</span>
+          <div class="en"><span class="sp">A:</span> What games did you use to play as a kid?</div>
+          <span class="vi">Hồi nhỏ bạn hay chơi trò gì?</span>
+          <div class="en"><span class="sp">B:</span> I used to play hide-and-seek with my neighbors.</div>
+          <span class="vi">Tôi hay chơi trốn tìm với hàng xóm.</span>
+          <div class="en"><span class="sp">A:</span> Sounds fun! Where did you play?</div>
+          <span class="vi">Nghe vui đó! Bạn chơi ở đâu?</span>
+          <div class="en"><span class="sp">B:</span> We used to play in the playground near my house.</div>
+          <span class="vi">Chúng tôi hay chơi ở sân chơi gần nhà tôi.</span>
+          <div class="en"><span class="sp">A:</span> Did you have a favorite toy?</div>
+          <span class="vi">Bạn có món đồ chơi yêu thích nào không?</span>
+          <div class="en"><span class="sp">B:</span> Yes, my favorite toy was a red bicycle.</div>
+          <span class="vi" style="margin-bottom:0">Có, món đồ chơi yêu thích của tôi là chiếc xe đạp màu đỏ.</span>
         </div>
         <div class="vocab">
           <div class="vocab-head">
@@ -270,16 +273,14 @@
             </div>
           </div>
           <table class="voc">
-            <tr><td class="w">where are you from?</td><td class="m">bạn đến từ đâu?</td></tr>
-            <tr><td class="w">I'm from...</td><td class="m">tôi đến từ...</td></tr>
-            <tr><td class="w">Vietnam</td><td class="m">Việt Nam</td></tr>
-            <tr><td class="w">where do you live?</td><td class="m">bạn sống ở đâu?</td></tr>
-            <tr><td class="w">I live in...</td><td class="m">tôi sống ở...</td></tr>
-            <tr><td class="w">Ho Chi Minh City</td><td class="m">Thành phố Hồ Chí Minh</td></tr>
-            <tr><td class="w">Canada</td><td class="m">nước Canada</td></tr>
-            <tr><td class="w">but</td><td class="m">nhưng</td></tr>
-            <tr><td class="w">now</td><td class="m">bây giờ</td></tr>
-            <tr><td class="w">that's nice</td><td class="m">hay quá / hay đấy</td></tr>
+            <tr><td class="w">as a kid</td><td class="m">hồi còn nhỏ</td></tr>
+            <tr><td class="w">hide-and-seek</td><td class="m">trò trốn tìm</td></tr>
+            <tr><td class="w">neighbors</td><td class="m">hàng xóm</td></tr>
+            <tr><td class="w">playground</td><td class="m">sân chơi</td></tr>
+            <tr><td class="w">favorite toy</td><td class="m">đồ chơi yêu thích</td></tr>
+            <tr><td class="w">bicycle</td><td class="m">xe đạp</td></tr>
+            <tr><td class="w">near my house</td><td class="m">gần nhà tôi</td></tr>
+            <tr><td class="w">sounds fun</td><td class="m">nghe có vẻ vui</td></tr>
           </table>
         </div>
       </div>
@@ -287,25 +288,25 @@
       <!-- ĐOẠN 3 -->
       <div class="listen">
         <div class="listen-head">
-          <span class="listen-title">🗨️ Đoạn 3 — Công việc</span>
+          <span class="listen-title">🗨️ Đoạn 3 — Người bạn thân thời thơ ấu</span>
           <div class="listen-ctrl">
             <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
             <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
           </div>
         </div>
         <div class="dialog">
-          <div class="en"><span class="sp">A:</span> What do you do, Mai Khanh?</div>
-          <span class="vi">Bạn làm nghề gì, Mai Khanh?</span>
-          <div class="en"><span class="sp">B:</span> I work as a developer. How about you?</div>
-          <span class="vi">Tôi làm lập trình viên. Còn bạn thì sao?</span>
-          <div class="en"><span class="sp">A:</span> I'm a teacher.</div>
-          <span class="vi">Tôi là giáo viên.</span>
-          <div class="en"><span class="sp">B:</span> Do you like your job?</div>
-          <span class="vi">Bạn có thích công việc của mình không?</span>
-          <div class="en"><span class="sp">A:</span> Yes, I do. I love it.</div>
-          <span class="vi">Có chứ. Tôi rất thích.</span>
-          <div class="en"><span class="sp">B:</span> Me too!</div>
-          <span class="vi" style="margin-bottom:0">Tôi cũng vậy!</span>
+          <div class="en"><span class="sp">A:</span> Did you have a best friend when you were young?</div>
+          <span class="vi">Khi còn nhỏ bạn có bạn thân không?</span>
+          <div class="en"><span class="sp">B:</span> Yes, my best friend lived next door.</div>
+          <span class="vi">Có, bạn thân của tôi sống ngay cạnh nhà.</span>
+          <div class="en"><span class="sp">A:</span> What did you use to do together?</div>
+          <span class="vi">Hai bạn hay làm gì cùng nhau?</span>
+          <div class="en"><span class="sp">B:</span> We used to fly kites and ride bikes every afternoon.</div>
+          <span class="vi">Chúng tôi hay thả diều và đạp xe mỗi buổi chiều.</span>
+          <div class="en"><span class="sp">A:</span> Do you still keep in touch?</div>
+          <span class="vi">Bạn còn giữ liên lạc với người đó không?</span>
+          <div class="en"><span class="sp">B:</span> Yes, we still talk sometimes.</div>
+          <span class="vi" style="margin-bottom:0">Có, thỉnh thoảng chúng tôi vẫn nói chuyện.</span>
         </div>
         <div class="vocab">
           <div class="vocab-head">
@@ -316,16 +317,14 @@
             </div>
           </div>
           <table class="voc">
-            <tr><td class="w">what do you do?</td><td class="m">bạn làm nghề gì?</td></tr>
-            <tr><td class="w">I work as a...</td><td class="m">tôi làm...</td></tr>
-            <tr><td class="w">a developer</td><td class="m">lập trình viên</td></tr>
-            <tr><td class="w">how about you?</td><td class="m">còn bạn thì sao?</td></tr>
-            <tr><td class="w">a teacher</td><td class="m">giáo viên</td></tr>
-            <tr><td class="w">do you like...?</td><td class="m">bạn có thích... không?</td></tr>
-            <tr><td class="w">your job</td><td class="m">công việc của bạn</td></tr>
-            <tr><td class="w">yes, I do</td><td class="m">có chứ</td></tr>
-            <tr><td class="w">I love it</td><td class="m">tôi rất thích</td></tr>
-            <tr><td class="w">me too</td><td class="m">tôi cũng vậy</td></tr>
+            <tr><td class="w">best friend</td><td class="m">bạn thân nhất</td></tr>
+            <tr><td class="w">next door</td><td class="m">nhà bên cạnh</td></tr>
+            <tr><td class="w">fly kites</td><td class="m">thả diều</td></tr>
+            <tr><td class="w">ride bikes</td><td class="m">đạp xe</td></tr>
+            <tr><td class="w">every afternoon</td><td class="m">mỗi buổi chiều</td></tr>
+            <tr><td class="w">keep in touch</td><td class="m">giữ liên lạc</td></tr>
+            <tr><td class="w">sometimes</td><td class="m">thỉnh thoảng</td></tr>
+            <tr><td class="w">together</td><td class="m">cùng nhau</td></tr>
           </table>
         </div>
       </div>
@@ -333,25 +332,25 @@
       <!-- ĐOẠN 4 -->
       <div class="listen">
         <div class="listen-head">
-          <span class="listen-title">🗨️ Đoạn 4 — Tạm biệt</span>
+          <span class="listen-title">🗨️ Đoạn 4 — So sánh tuổi thơ xưa và nay</span>
           <div class="listen-ctrl">
             <button class="lc" onclick="playOnce(this,'dialog')">▶️ Nghe cả đoạn</button>
             <button class="lc loop" onclick="toggleLoop(this,'dialog')">🔁 Nghe lặp</button>
           </div>
         </div>
         <div class="dialog">
-          <div class="en"><span class="sp">A:</span> It's nice talking to you, Mai Khanh.</div>
-          <span class="vi">Rất vui được nói chuyện với bạn, Mai Khanh.</span>
-          <div class="en"><span class="sp">B:</span> Nice talking to you too.</div>
-          <span class="vi">Tôi cũng rất vui được nói chuyện với bạn.</span>
-          <div class="en"><span class="sp">A:</span> See you tomorrow!</div>
-          <span class="vi">Hẹn gặp bạn ngày mai!</span>
-          <div class="en"><span class="sp">B:</span> See you! Have a nice day.</div>
-          <span class="vi">Hẹn gặp lại! Chúc một ngày tốt lành.</span>
-          <div class="en"><span class="sp">A:</span> Thank you. Goodbye!</div>
-          <span class="vi">Cảm ơn. Tạm biệt!</span>
-          <div class="en"><span class="sp">B:</span> Bye, Anna! Take care.</div>
-          <span class="vi" style="margin-bottom:0">Tạm biệt, Anna! Giữ gìn sức khỏe nhé.</span>
+          <div class="en"><span class="sp">A:</span> Do you think childhood was different in the past?</div>
+          <span class="vi">Bạn có nghĩ tuổi thơ ngày xưa khác bây giờ không?</span>
+          <div class="en"><span class="sp">B:</span> Yes, kids used to play outside more.</div>
+          <span class="vi">Có, trẻ con ngày xưa hay chơi ngoài trời nhiều hơn.</span>
+          <div class="en"><span class="sp">A:</span> Now children spend more time on phones, right?</div>
+          <span class="vi">Bây giờ trẻ em dành nhiều thời gian dùng điện thoại hơn phải không?</span>
+          <div class="en"><span class="sp">B:</span> Exactly. We didn't use to have smartphones.</div>
+          <span class="vi">Đúng vậy. Hồi đó chúng tôi không có điện thoại thông minh.</span>
+          <div class="en"><span class="sp">A:</span> What do you miss most about your childhood?</div>
+          <span class="vi">Điều bạn nhớ nhất về tuổi thơ là gì?</span>
+          <div class="en"><span class="sp">B:</span> I miss the simple, carefree days the most.</div>
+          <span class="vi" style="margin-bottom:0">Tôi nhớ nhất những ngày tháng đơn giản, vô tư.</span>
         </div>
         <div class="vocab">
           <div class="vocab-head">
@@ -362,24 +361,22 @@
             </div>
           </div>
           <table class="voc">
-            <tr><td class="w">nice talking to you</td><td class="m">vui được nói chuyện với bạn</td></tr>
-            <tr><td class="w">too</td><td class="m">cũng vậy</td></tr>
-            <tr><td class="w">see you tomorrow</td><td class="m">hẹn gặp ngày mai</td></tr>
-            <tr><td class="w">see you!</td><td class="m">hẹn gặp lại!</td></tr>
-            <tr><td class="w">have a nice day</td><td class="m">chúc một ngày tốt lành</td></tr>
-            <tr><td class="w">thank you</td><td class="m">cảm ơn</td></tr>
-            <tr><td class="w">goodbye</td><td class="m">tạm biệt</td></tr>
-            <tr><td class="w">bye</td><td class="m">tạm biệt (thân mật)</td></tr>
-            <tr><td class="w">take care</td><td class="m">giữ gìn sức khỏe nhé</td></tr>
-            <tr><td class="w">tomorrow</td><td class="m">ngày mai</td></tr>
+            <tr><td class="w">in the past</td><td class="m">trong quá khứ</td></tr>
+            <tr><td class="w">play outside</td><td class="m">chơi ngoài trời</td></tr>
+            <tr><td class="w">spend time on phones</td><td class="m">dành thời gian dùng điện thoại</td></tr>
+            <tr><td class="w">didn't use to</td><td class="m">hồi đó không (thường)</td></tr>
+            <tr><td class="w">smartphones</td><td class="m">điện thoại thông minh</td></tr>
+            <tr><td class="w">carefree</td><td class="m">vô tư, không lo âu</td></tr>
+            <tr><td class="w">simple days</td><td class="m">những ngày tháng đơn giản</td></tr>
+            <tr><td class="w">the most</td><td class="m">nhất</td></tr>
           </table>
         </div>
       </div>
 
       <ul class="tasks">
-        <li><label><input type="checkbox" data-k="t3"><span>Đã đọc hiểu nghĩa cả 4 đoạn hội thoại</span></label></li>
-        <li><label><input type="checkbox" data-k="t4"><span>Đã nhại theo từng câu đúng ngữ điệu</span></label></li>
-        <li><label><input type="checkbox" data-k="t5"><span>Đã bật 🔁 nghe lặp &amp; học thuộc từ vựng mỗi đoạn</span></label></li>
+        <li><label><input type="checkbox" data-k="t4"><span>Đã đọc hiểu nghĩa cả 4 đoạn hội thoại</span></label></li>
+        <li><label><input type="checkbox" data-k="t5"><span>Đã nhại theo từng câu đúng ngữ điệu</span></label></li>
+        <li><label><input type="checkbox" data-k="t6"><span>Đã bật 🔁 nghe lặp &amp; học thuộc từ vựng mỗi đoạn</span></label></li>
       </ul>
     </div>
   </div>
@@ -388,32 +385,30 @@
   <div class="part p3">
     <div class="head">🟧 Phần 3 — Nói &amp; Ghi âm <span class="min">15 phút</span></div>
     <div class="body">
-      <p><b>Nhiệm vụ:</b> Tự giới thiệu bản thân trong <b>1 phút</b> rồi ghi âm lại.</p>
+      <p><b>Nhiệm vụ:</b> Kể lại một kỷ niệm tuổi thơ của bạn — rồi ghi âm lại.</p>
 
       <h3>Khung mẫu (điền thông tin của bạn)</h3>
-      <div class="tpl">Hello! My name is __________.
-I'm from __________.
-I live in __________.
-I'm ____ years old.
-I work as a __________.
-In my free time, I like __________.
-Nice to meet you!</div>
+      <div class="tpl">When I was young, I lived in ____ .
+I used to ____ with my ____ every ____ .
+My favorite toy was ____ .
+One memory I still remember is ____ .
+Now I miss ____ the most.</div>
 
       <h3>Ví dụ hoàn chỉnh</h3>
-      <div class="example">Hello! My name is Mai Khanh. I'm from Vietnam. I live in Ho Chi Minh City. I'm 30 years old. I work as a developer. In my free time, I like watching football. Nice to meet you!</div>
+      <div class="example">When I was young, I lived in a small village. I used to play hide-and-seek with my best friend every afternoon. My favorite toy was a red bicycle. One memory I still remember is flying kites with my neighbors on windy days. Now I miss those simple, carefree days the most.</div>
 
       <h3>Các bước thực hiện</h3>
       <ol>
-        <li>📝 Viết bài giới thiệu của bạn theo khung trên (2 phút)</li>
+        <li>📝 Viết đoạn kể kỷ niệm tuổi thơ của bạn theo khung trên (2 phút)</li>
         <li>🗣️ Đọc to &amp; tập 2–3 lần (5 phút)</li>
         <li>🎙️ <b>Ghi âm</b> bằng điện thoại — nói tự nhiên, cố không nhìn giấy (3 phút)</li>
         <li>👂 <b>Nghe lại</b> — phát âm rõ chưa? có ngập ngừng không? (5 phút)</li>
       </ol>
 
       <ul class="tasks">
-        <li><label><input type="checkbox" data-k="t6"><span>Đã viết bài tự giới thiệu của mình</span></label></li>
-        <li><label><input type="checkbox" data-k="t7"><span>Đã ghi âm bài nói</span></label></li>
-        <li><label><input type="checkbox" data-k="t8"><span>Đã nghe lại &amp; tự nhận xét</span></label></li>
+        <li><label><input type="checkbox" data-k="t7"><span>Đã viết đoạn kể kỷ niệm tuổi thơ của mình</span></label></li>
+        <li><label><input type="checkbox" data-k="t8"><span>Đã ghi âm bài nói</span></label></li>
+        <li><label><input type="checkbox" data-k="t9"><span>Đã nghe lại &amp; tự nhận xét</span></label></li>
       </ul>
     </div>
   </div>
@@ -431,21 +426,21 @@ Nice to meet you!</div>
         </div>
         <table class="bl">
           <tr><th>Tiếng Việt</th><th>Tiếng Anh</th></tr>
-          <tr><td class="vi">Xin chào! Rất vui được gặp bạn.</td><td class="en">Hello! Nice to meet you.</td></tr>
-          <tr><td class="vi">Tôi tên là Mai Khanh.</td><td class="en">My name is Mai Khanh.</td></tr>
-          <tr><td class="vi">Bạn tên gì?</td><td class="en">What's your name?</td></tr>
-          <tr><td class="vi">Tôi đến từ Việt Nam.</td><td class="en">I'm from Vietnam.</td></tr>
-          <tr><td class="vi">Tôi sống ở TP.HCM.</td><td class="en">I live in Ho Chi Minh City.</td></tr>
-          <tr><td class="vi">Bạn đến từ đâu?</td><td class="en">Where are you from?</td></tr>
-          <tr><td class="vi">Tôi làm lập trình viên.</td><td class="en">I work as a developer.</td></tr>
-          <tr><td class="vi">Bạn làm nghề gì?</td><td class="en">What do you do?</td></tr>
-          <tr><td class="vi">Tôi 30 tuổi.</td><td class="en">I'm 30 years old.</td></tr>
-          <tr><td class="vi">Rất vui được nói chuyện với bạn!</td><td class="en">Nice talking to you!</td></tr>
+          <tr><td class="vi">Khi tôi còn nhỏ, tôi sống ở một thị trấn nhỏ.</td><td class="en">When I was young, I lived in a small town.</td></tr>
+          <tr><td class="vi">Tôi lớn lên ở nông thôn.</td><td class="en">I grew up in the countryside.</td></tr>
+          <tr><td class="vi">Hồi đó tôi hay chơi ở sân chơi.</td><td class="en">I used to play in the playground.</td></tr>
+          <tr><td class="vi">Chúng tôi hay thả diều mỗi buổi chiều.</td><td class="en">We used to fly kites every afternoon.</td></tr>
+          <tr><td class="vi">Món đồ chơi yêu thích của tôi là một con gấu bông.</td><td class="en">My favorite toy was a teddy bear.</td></tr>
+          <tr><td class="vi">Tôi nhớ những người bạn thời thơ ấu.</td><td class="en">I miss my childhood friends.</td></tr>
+          <tr><td class="vi">Bạn có nhớ người bạn thân nhất khi lớn lên không?</td><td class="en">Do you remember your best friend growing up?</td></tr>
+          <tr><td class="vi">Trẻ con ngày xưa hay chơi ngoài trời nhiều hơn.</td><td class="en">Kids used to play outside more.</td></tr>
+          <tr><td class="vi">Tôi bị gãy tay khi tôi bảy tuổi.</td><td class="en">I broke my arm when I was seven.</td></tr>
+          <tr><td class="vi">Tôi nhớ nhất những ngày tháng đơn giản đó.</td><td class="en">I miss the simple days the most.</td></tr>
         </table>
       </div>
       <ul class="tasks">
-        <li><label><input type="checkbox" data-k="t9"><span>Đã luyện dịch Việt → Anh (ẩn tiếng Anh, tự nói rồi kiểm tra)</span></label></li>
-        <li><label><input type="checkbox" data-k="t10"><span>Đã luyện dịch Anh → Việt (ẩn tiếng Việt)</span></label></li>
+        <li><label><input type="checkbox" data-k="t10"><span>Đã luyện dịch Việt → Anh (ẩn tiếng Anh, tự nói rồi kiểm tra)</span></label></li>
+        <li><label><input type="checkbox" data-k="t11"><span>Đã luyện dịch Anh → Việt (ẩn tiếng Việt)</span></label></li>
       </ul>
     </div>
   </div>
@@ -458,17 +453,17 @@ Nice to meet you!</div>
       <button class="reveal-all" onclick="revealAll()">👁️ Hiện tất cả đáp án</button>
       <button class="reveal-all" onclick="hideAll()">🙈 Ẩn tất cả đáp án</button>
       <ol class="speak">
-        <li><div class="q">Xin chào, tôi tên là Mai Khanh.</div><div class="a">→ Hello, my name is Mai Khanh.</div></li>
-        <li><div class="q">Tôi đến từ Việt Nam.</div><div class="a">→ I'm from Vietnam.</div></li>
-        <li><div class="q">Tôi sống ở Thành phố Hồ Chí Minh.</div><div class="a">→ I live in Ho Chi Minh City.</div></li>
-        <li><div class="q">Tôi 30 tuổi.</div><div class="a">→ I'm 30 years old.</div></li>
-        <li><div class="q">Tôi làm lập trình viên.</div><div class="a">→ I work as a developer.</div></li>
-        <li><div class="q">Rất vui được gặp bạn.</div><div class="a">→ Nice to meet you.</div></li>
-        <li><div class="q">Bạn tên là gì?</div><div class="a">→ What's your name?</div></li>
-        <li><div class="q">Bạn làm nghề gì?</div><div class="a">→ What do you do?</div></li>
+        <li><div class="q">Bạn lớn lên ở đâu vậy?</div><div class="a">→ Where did you grow up?</div></li>
+        <li><div class="q">Hồi đó tôi hay chơi trốn tìm với bạn bè.</div><div class="a">→ I used to play hide-and-seek with my friends.</div></li>
+        <li><div class="q">Món đồ chơi yêu thích của tôi là một chiếc xe đạp.</div><div class="a">→ My favorite toy was a bicycle.</div></li>
+        <li><div class="q">Bạn có nhớ quê nhà không?</div><div class="a">→ Do you miss your hometown?</div></li>
+        <li><div class="q">Chúng tôi hay thả diều mỗi buổi chiều.</div><div class="a">→ We used to fly kites every afternoon.</div></li>
+        <li><div class="q">Tôi nhớ những người bạn thời thơ ấu.</div><div class="a">→ I miss my childhood friends.</div></li>
+        <li><div class="q">Bạn có bạn thân khi còn nhỏ không?</div><div class="a">→ Did you have a best friend when you were young?</div></li>
+        <li><div class="q">Tôi nhớ nhất những ngày tháng đơn giản đó.</div><div class="a">→ I miss the simple days the most.</div></li>
       </ol>
       <ul class="tasks">
-        <li><label><input type="checkbox" data-k="t11"><span>Đã nói to toàn bộ câu (nhìn Việt → nói Anh)</span></label></li>
+        <li><label><input type="checkbox" data-k="t12"><span>Đã nói to toàn bộ câu (nhìn Việt → nói Anh)</span></label></li>
       </ul>
     </div>
   </div>
@@ -484,13 +479,13 @@ Nice to meet you!</div>
       <div class="qa">
         <div class="qa-qhead">
           <span class="qa-num">Q1.</span>
-          <span class="qa-qen">Hi! Can you introduce yourself?</span>
+          <span class="qa-qen">Where did you grow up?</span>
           <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
         </div>
-        <div class="qa-qvi">Chào bạn! Bạn có thể giới thiệu bản thân được không?</div>
+        <div class="qa-qvi">Bạn lớn lên ở đâu vậy?</div>
         <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
-        <div class="qa-aen">Hi! My name is Mai Khanh, and I'm from Vietnam. I <span class="u">live in Ho Chi Minh City</span> with my family. <b>Nice to meet you!</b></div>
-        <div class="qa-avi"><b>Dịch:</b> <span class="t">Chào bạn! Mình tên là Mai Khanh, và mình đến từ Việt Nam. Mình sống ở Thành phố Hồ Chí Minh cùng gia đình. Rất vui được gặp bạn!</span></div>
+        <div class="qa-aen">I <b>grew up</b> in a small village in the countryside. It was a quiet and <span class="u">peaceful place</span> to live.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình lớn lên ở một ngôi làng nhỏ ở nông thôn. Đó là một nơi yên tĩnh và thanh bình để sống.</span></div>
         <div class="qa-ctrl">
           <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
           <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
@@ -504,10 +499,10 @@ Nice to meet you!</div>
           </div>
           <div class="qvoc-wrap"><table class="qvoc">
             <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
-            <tr><td class="w">my name is</td><td class="ph"><span class="hint">(mai neim iz)</span><span class="ipa">/maɪ ˈneɪm ɪz/</span></td><td class="ty">phr.</td><td class="mn">tên tôi là</td></tr>
-            <tr><td class="w">I'm from</td><td class="ph"><span class="hint">(am from)</span><span class="ipa">/aɪm frɒm/</span></td><td class="ty">phr.</td><td class="mn">tôi đến từ</td></tr>
-            <tr><td class="w">live in</td><td class="ph"><span class="hint">(lív in)</span><span class="ipa">/lɪv ɪn/</span></td><td class="ty">v phr.</td><td class="mn">sống ở</td></tr>
-            <tr><td class="w">nice to meet you</td><td class="ph"><span class="hint">(nai-s tu mít diu)</span><span class="ipa">/naɪs tə miːt juː/</span></td><td class="ty">phr.</td><td class="mn">rất vui được gặp bạn</td></tr>
+            <tr><td class="w">grow up</td><td class="ph"><span class="hint">(grâu ắp)</span><span class="ipa">/ɡrəʊ ʌp/</span></td><td class="ty">v phr.</td><td class="mn">lớn lên</td></tr>
+            <tr><td class="w">village</td><td class="ph"><span class="hint">(vi-lịch)</span><span class="ipa">/ˈvɪlɪdʒ/</span></td><td class="ty">n.</td><td class="mn">ngôi làng</td></tr>
+            <tr><td class="w">countryside</td><td class="ph"><span class="hint">(căn-tri-sai)</span><span class="ipa">/ˈkʌntrisaɪd/</span></td><td class="ty">n.</td><td class="mn">nông thôn</td></tr>
+            <tr><td class="w">peaceful place</td><td class="ph"><span class="hint">(pis-phồ plêis)</span><span class="ipa">/ˈpiːsfl pleɪs/</span></td><td class="ty">n phr.</td><td class="mn">nơi thanh bình</td></tr>
           </table></div>
         </div>
       </div>
@@ -516,13 +511,13 @@ Nice to meet you!</div>
       <div class="qa">
         <div class="qa-qhead">
           <span class="qa-num">Q2.</span>
-          <span class="qa-qen">Where are you from?</span>
+          <span class="qa-qen">What games did you use to play as a child?</span>
           <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
         </div>
-        <div class="qa-qvi">Bạn đến từ đâu?</div>
+        <div class="qa-qvi">Hồi nhỏ bạn hay chơi trò gì?</div>
         <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
-        <div class="qa-aen">I'm from Vietnam. I <b>live in Ho Chi Minh City</b>, a big and <span class="u">busy city</span> in the south. I really love it here.</div>
-        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình đến từ Việt Nam. Mình sống ở Thành phố Hồ Chí Minh, một thành phố lớn và nhộn nhịp ở miền Nam. Mình rất thích nơi đây.</span></div>
+        <div class="qa-aen">I <b>used to play</b> hide-and-seek with my neighbors. We also loved to <span class="u">fly kites</span> in the open field.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Hồi đó mình hay chơi trốn tìm với hàng xóm. Chúng tôi cũng thích thả diều ở bãi đất trống.</span></div>
         <div class="qa-ctrl">
           <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
           <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
@@ -536,10 +531,10 @@ Nice to meet you!</div>
           </div>
           <div class="qvoc-wrap"><table class="qvoc">
             <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
-            <tr><td class="w">I'm from</td><td class="ph"><span class="hint">(am from)</span><span class="ipa">/aɪm frɒm/</span></td><td class="ty">phr.</td><td class="mn">tôi đến từ</td></tr>
-            <tr><td class="w">live in</td><td class="ph"><span class="hint">(lív in)</span><span class="ipa">/lɪv ɪn/</span></td><td class="ty">v phr.</td><td class="mn">sống ở</td></tr>
-            <tr><td class="w">a busy city</td><td class="ph"><span class="hint">(ơ bí-zi si-ti)</span><span class="ipa">/ə ˈbɪzi ˈsɪti/</span></td><td class="ty">n phr.</td><td class="mn">một thành phố nhộn nhịp</td></tr>
-            <tr><td class="w">in the south</td><td class="ph"><span class="hint">(in đơ sao-th)</span><span class="ipa">/ɪn ðə saʊθ/</span></td><td class="ty">phr.</td><td class="mn">ở miền Nam</td></tr>
+            <tr><td class="w">used to play</td><td class="ph"><span class="hint">(diu-sờ tu plêi)</span><span class="ipa">/juːst tə pleɪ/</span></td><td class="ty">phr.</td><td class="mn">hồi đó hay chơi</td></tr>
+            <tr><td class="w">hide-and-seek</td><td class="ph"><span class="hint">(hai-đờ ần sik)</span><span class="ipa">/haɪd ənd siːk/</span></td><td class="ty">n.</td><td class="mn">trò trốn tìm</td></tr>
+            <tr><td class="w">fly kites</td><td class="ph"><span class="hint">(phlai kaits)</span><span class="ipa">/flaɪ kaɪts/</span></td><td class="ty">v phr.</td><td class="mn">thả diều</td></tr>
+            <tr><td class="w">open field</td><td class="ph"><span class="hint">(âu-pần phi-ồd)</span><span class="ipa">/ˈəʊpən fiːld/</span></td><td class="ty">n phr.</td><td class="mn">bãi đất trống</td></tr>
           </table></div>
         </div>
       </div>
@@ -548,13 +543,13 @@ Nice to meet you!</div>
       <div class="qa">
         <div class="qa-qhead">
           <span class="qa-num">Q3.</span>
-          <span class="qa-qen">What do you do?</span>
+          <span class="qa-qen">Did you have a best friend when you were young?</span>
           <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
         </div>
-        <div class="qa-qvi">Bạn làm nghề gì?</div>
+        <div class="qa-qvi">Khi còn nhỏ bạn có bạn thân không?</div>
         <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
-        <div class="qa-aen">I <b>work as a developer</b> at a small company. I <span class="u">like my job</span> because I can learn new things every day.</div>
-        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình làm lập trình viên ở một công ty nhỏ. Mình thích công việc của mình vì mình được học điều mới mỗi ngày.</span></div>
+        <div class="qa-aen">Yes, my <b>best friend</b> lived next door. We used to <span class="u">ride bikes together</span> every afternoon.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Có, bạn thân của mình sống nhà bên cạnh. Chúng tôi hay đạp xe cùng nhau mỗi buổi chiều.</span></div>
         <div class="qa-ctrl">
           <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
           <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
@@ -568,10 +563,10 @@ Nice to meet you!</div>
           </div>
           <div class="qvoc-wrap"><table class="qvoc">
             <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
-            <tr><td class="w">work as a developer</td><td class="ph"><span class="hint">(uơk ez ơ đi-ve-lơ-pơ)</span><span class="ipa">/wɜːk əz ə dɪˈveləpə/</span></td><td class="ty">v phr.</td><td class="mn">làm lập trình viên</td></tr>
-            <tr><td class="w">a small company</td><td class="ph"><span class="hint">(ơ smol kâm-pơ-ni)</span><span class="ipa">/ə smɔːl ˈkʌmpəni/</span></td><td class="ty">n phr.</td><td class="mn">một công ty nhỏ</td></tr>
-            <tr><td class="w">like my job</td><td class="ph"><span class="hint">(lai-k mai job)</span><span class="ipa">/laɪk maɪ dʒɒb/</span></td><td class="ty">v phr.</td><td class="mn">thích công việc của tôi</td></tr>
-            <tr><td class="w">learn new things</td><td class="ph"><span class="hint">(lơn niu things)</span><span class="ipa">/lɜːn njuː θɪŋz/</span></td><td class="ty">v phr.</td><td class="mn">học những điều mới</td></tr>
+            <tr><td class="w">best friend</td><td class="ph"><span class="hint">(bét phren)</span><span class="ipa">/best frend/</span></td><td class="ty">n phr.</td><td class="mn">bạn thân nhất</td></tr>
+            <tr><td class="w">next door</td><td class="ph"><span class="hint">(nếch-tồ đô)</span><span class="ipa">/nekst dɔː/</span></td><td class="ty">adv.</td><td class="mn">nhà bên cạnh</td></tr>
+            <tr><td class="w">ride bikes</td><td class="ph"><span class="hint">(rai-đờ báics)</span><span class="ipa">/raɪd baɪks/</span></td><td class="ty">v phr.</td><td class="mn">đạp xe</td></tr>
+            <tr><td class="w">together</td><td class="ph"><span class="hint">(tơ-ghe-đờ)</span><span class="ipa">/təˈɡeðə/</span></td><td class="ty">adv.</td><td class="mn">cùng nhau</td></tr>
           </table></div>
         </div>
       </div>
@@ -580,13 +575,13 @@ Nice to meet you!</div>
       <div class="qa">
         <div class="qa-qhead">
           <span class="qa-num">Q4.</span>
-          <span class="qa-qen">What languages do you speak?</span>
+          <span class="qa-qen">What was your favorite toy as a child?</span>
           <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
         </div>
-        <div class="qa-qvi">Bạn nói được những ngôn ngữ nào?</div>
+        <div class="qa-qvi">Món đồ chơi yêu thích của bạn hồi nhỏ là gì?</div>
         <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
-        <div class="qa-aen">I <b>speak Vietnamese</b>, my mother tongue. I can also speak <span class="u">a little English</span>, but I am still learning.</div>
-        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình nói tiếng Việt, tiếng mẹ đẻ của mình. Mình cũng nói được một chút tiếng Anh, nhưng mình vẫn đang học.</span></div>
+        <div class="qa-aen">My <b>favorite toy</b> was a red bicycle my father gave me. I <span class="u">rode it</span> everywhere in the neighborhood.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Món đồ chơi yêu thích của mình là chiếc xe đạp màu đỏ bố tặng. Mình đạp nó đi khắp khu phố.</span></div>
         <div class="qa-ctrl">
           <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
           <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
@@ -600,10 +595,10 @@ Nice to meet you!</div>
           </div>
           <div class="qvoc-wrap"><table class="qvoc">
             <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
-            <tr><td class="w">speak Vietnamese</td><td class="ph"><span class="hint">(spík vi-et-nơ-mí-z)</span><span class="ipa">/spiːk ˌvjetnəˈmiːz/</span></td><td class="ty">v phr.</td><td class="mn">nói tiếng Việt</td></tr>
-            <tr><td class="w">mother tongue</td><td class="ph"><span class="hint">(ma-đơ tâng)</span><span class="ipa">/ˈmʌðə tʌŋ/</span></td><td class="ty">n phr.</td><td class="mn">tiếng mẹ đẻ</td></tr>
-            <tr><td class="w">a little English</td><td class="ph"><span class="hint">(ơ li-tồ ing-lích)</span><span class="ipa">/ə ˈlɪtl ˈɪŋɡlɪʃ/</span></td><td class="ty">n phr.</td><td class="mn">một chút tiếng Anh</td></tr>
-            <tr><td class="w">still learning</td><td class="ph"><span class="hint">(stil lơ-ning)</span><span class="ipa">/stɪl ˈlɜːnɪŋ/</span></td><td class="ty">v phr.</td><td class="mn">vẫn đang học</td></tr>
+            <tr><td class="w">favorite toy</td><td class="ph"><span class="hint">(phê-vơ-rịt toi)</span><span class="ipa">/ˈfeɪvərɪt tɔɪ/</span></td><td class="ty">n phr.</td><td class="mn">đồ chơi yêu thích</td></tr>
+            <tr><td class="w">bicycle</td><td class="ph"><span class="hint">(bai-si-cồ)</span><span class="ipa">/ˈbaɪsɪkl/</span></td><td class="ty">n.</td><td class="mn">xe đạp</td></tr>
+            <tr><td class="w">rode it</td><td class="ph"><span class="hint">(râu-đờ ít)</span><span class="ipa">/rəʊd ɪt/</span></td><td class="ty">v.</td><td class="mn">đã đạp nó (quá khứ của ride)</td></tr>
+            <tr><td class="w">neighborhood</td><td class="ph"><span class="hint">(nây-bờ-hút)</span><span class="ipa">/ˈneɪbəhʊd/</span></td><td class="ty">n.</td><td class="mn">khu xóm/khu phố</td></tr>
           </table></div>
         </div>
       </div>
@@ -612,13 +607,13 @@ Nice to meet you!</div>
       <div class="qa">
         <div class="qa-qhead">
           <span class="qa-num">Q5.</span>
-          <span class="qa-qen">Why are you learning English?</span>
+          <span class="qa-qen">Do you think childhood was different in the past?</span>
           <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
         </div>
-        <div class="qa-qvi">Tại sao bạn học tiếng Anh?</div>
+        <div class="qa-qvi">Bạn có nghĩ tuổi thơ ngày xưa khác bây giờ không?</div>
         <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
-        <div class="qa-aen">I am <b>learning English for my work and travel</b>. At work, I sometimes <span class="u">talk to foreign people</span>. I also want to travel abroad one day.</div>
-        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình học tiếng Anh cho công việc và du lịch. Ở chỗ làm, đôi khi mình nói chuyện với người nước ngoài. Mình cũng muốn đi du lịch nước ngoài một ngày nào đó.</span></div>
+        <div class="qa-aen">Yes, kids <b>used to play outside</b> much more. Now children <span class="u">spend more time on phones</span> than outdoors.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Có, trẻ con ngày xưa hay chơi ngoài trời nhiều hơn. Bây giờ trẻ em dành nhiều thời gian dùng điện thoại hơn là ra ngoài.</span></div>
         <div class="qa-ctrl">
           <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
           <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
@@ -632,10 +627,10 @@ Nice to meet you!</div>
           </div>
           <div class="qvoc-wrap"><table class="qvoc">
             <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
-            <tr><td class="w">learning English</td><td class="ph"><span class="hint">(lơ-ning ing-lích)</span><span class="ipa">/ˈlɜːnɪŋ ˈɪŋɡlɪʃ/</span></td><td class="ty">v phr.</td><td class="mn">học tiếng Anh</td></tr>
-            <tr><td class="w">talk to foreign people</td><td class="ph"><span class="hint">(tók tu fo-rin pí-pồ)</span><span class="ipa">/tɔːk tə ˈfɒrən ˈpiːpl/</span></td><td class="ty">v phr.</td><td class="mn">nói chuyện với người nước ngoài</td></tr>
-            <tr><td class="w">travel abroad</td><td class="ph"><span class="hint">(tra-vồ ơ-brod)</span><span class="ipa">/ˈtrævl əˈbrɔːd/</span></td><td class="ty">v phr.</td><td class="mn">đi du lịch nước ngoài</td></tr>
-            <tr><td class="w">one day</td><td class="ph"><span class="hint">(oăn đây)</span><span class="ipa">/wʌn deɪ/</span></td><td class="ty">adv.</td><td class="mn">một ngày nào đó</td></tr>
+            <tr><td class="w">used to play outside</td><td class="ph"><span class="hint">(diu-sờ tu plêi aotsai)</span><span class="ipa">/juːst tə pleɪ ˌaʊtˈsaɪd/</span></td><td class="ty">phr.</td><td class="mn">hồi đó hay chơi ngoài trời</td></tr>
+            <tr><td class="w">spend time</td><td class="ph"><span class="hint">(sờ-pen taim)</span><span class="ipa">/spend taɪm/</span></td><td class="ty">v phr.</td><td class="mn">dành thời gian</td></tr>
+            <tr><td class="w">outdoors</td><td class="ph"><span class="hint">(ao-đo-dồs)</span><span class="ipa">/ˌaʊtˈdɔːz/</span></td><td class="ty">adv.</td><td class="mn">ngoài trời</td></tr>
+            <tr><td class="w">much more</td><td class="ph"><span class="hint">(mách mô-ơ)</span><span class="ipa">/mʌtʃ mɔː/</span></td><td class="ty">phr.</td><td class="mn">nhiều hơn nhiều</td></tr>
           </table></div>
         </div>
       </div>
@@ -644,13 +639,13 @@ Nice to meet you!</div>
       <div class="qa">
         <div class="qa-qhead">
           <span class="qa-num">Q6.</span>
-          <span class="qa-qen">How do you greet people in English?</span>
+          <span class="qa-qen">What do you miss most about your childhood?</span>
           <button class="lc qc mini" onclick="qaLoop(this,'q')" title="Lặp câu hỏi">🔁</button>
         </div>
-        <div class="qa-qvi">Bạn chào mọi người bằng tiếng Anh như thế nào?</div>
+        <div class="qa-qvi">Điều bạn nhớ nhất về tuổi thơ là gì?</div>
         <button class="lc loop qc" onclick="qaLoop(this,'q')">🔁 Lặp câu hỏi</button>
-        <div class="qa-aen">When I meet someone, I say <b>Hello, nice to meet you</b>. If it is morning, I say <span class="u">Good morning</span>. Then I ask, How are you?</div>
-        <div class="qa-avi"><b>Dịch:</b> <span class="t">Khi gặp ai đó, mình nói Xin chào, rất vui được gặp bạn. Nếu là buổi sáng, mình nói Chào buổi sáng. Rồi mình hỏi, Bạn khỏe không?</span></div>
+        <div class="qa-aen">I <b>miss</b> the simple, carefree days the most. Life felt <span class="u">easier and happier</span> back then.</div>
+        <div class="qa-avi"><b>Dịch:</b> <span class="t">Mình nhớ nhất những ngày tháng đơn giản, vô tư. Cuộc sống hồi đó cảm giác dễ dàng và hạnh phúc hơn.</span></div>
         <div class="qa-ctrl">
           <button class="lc loop qc" onclick="qaLoop(this,'ad')">🔁 Lặp đoạn + dịch</button>
           <button class="lc loop qc" onclick="qaLoop(this,'a')">🔁 Lặp câu trả lời</button>
@@ -664,10 +659,10 @@ Nice to meet you!</div>
           </div>
           <div class="qvoc-wrap"><table class="qvoc">
             <tr><th>Từ / cụm</th><th>Phiên âm</th><th>Loại</th><th>Nghĩa</th></tr>
-            <tr><td class="w">meet someone</td><td class="ph"><span class="hint">(mít sâm-oăn)</span><span class="ipa">/miːt ˈsʌmwʌn/</span></td><td class="ty">v phr.</td><td class="mn">gặp ai đó</td></tr>
-            <tr><td class="w">nice to meet you</td><td class="ph"><span class="hint">(nai-s tu mít diu)</span><span class="ipa">/naɪs tə miːt juː/</span></td><td class="ty">phr.</td><td class="mn">rất vui được gặp bạn</td></tr>
-            <tr><td class="w">good morning</td><td class="ph"><span class="hint">(gút mo-ning)</span><span class="ipa">/ɡʊd ˈmɔːnɪŋ/</span></td><td class="ty">phr.</td><td class="mn">chào buổi sáng</td></tr>
-            <tr><td class="w">how are you?</td><td class="ph"><span class="hint">(hao a diu)</span><span class="ipa">/haʊ ɑː juː/</span></td><td class="ty">phr.</td><td class="mn">bạn khỏe không?</td></tr>
+            <tr><td class="w">miss</td><td class="ph"><span class="hint">(mis)</span><span class="ipa">/mɪs/</span></td><td class="ty">v.</td><td class="mn">nhớ (ai/gì)</td></tr>
+            <tr><td class="w">carefree</td><td class="ph"><span class="hint">(ke-ơ-phri)</span><span class="ipa">/ˈkeəfriː/</span></td><td class="ty">adj.</td><td class="mn">vô tư, không lo âu</td></tr>
+            <tr><td class="w">easier</td><td class="ph"><span class="hint">(i-di-ơ)</span><span class="ipa">/ˈiːziə/</span></td><td class="ty">adj.</td><td class="mn">dễ dàng hơn</td></tr>
+            <tr><td class="w">back then</td><td class="ph"><span class="hint">(béc đen)</span><span class="ipa">/bæk ðen/</span></td><td class="ty">phr.</td><td class="mn">hồi đó</td></tr>
           </table></div>
         </div>
       </div>
@@ -680,25 +675,26 @@ Nice to meet you!</div>
     </div>
   </div>
 
-  <div class="goal">🎯 <b>Mục tiêu hôm nay:</b> Nói trôi chảy phần giới thiệu bản thân mà <b>không cần nhìn giấy</b>.</div>
+  <div class="goal">🎯 <b>Mục tiêu hôm nay:</b> Kể được một kỷ niệm tuổi thơ bằng tiếng Anh, dùng đúng "used to" và quá khứ đơn.</div>
 
   <div class="nav">
-    <a href="lo-trinh-giao-tiep.html">📋 Về lộ trình tổng</a>
-    <a href="Ngày 2 - Số đếm, tuổi và số điện thoại.html">Ngày 2 ▶</a>
+    <a href="Ngày 27 - Kể về chuyến đi và kỳ nghỉ.html">◀ Ngày 27</a>
+    <a href="lo-trinh-giao-tiep.html">📋 Lộ trình</a>
+    <a href="Ngày 29 - Câu hỏi ở quá khứ.html">Ngày 29 ▶</a>
   </div>
 
-  <footer>Tích các ô khi hoàn thành — tiến độ được lưu tự động trong trình duyệt.<br>Tuần 1 · Ngày 1 · Chúc bạn học vui! 🚀</footer>
+  <footer>Tích các ô khi hoàn thành — tiến độ được lưu tự động trong trình duyệt.<br>Tuần 5 · Ngày 28 · Chúc bạn học vui! 🚀</footer>
 </div>
 
 <script>
 const boxes=[...document.querySelectorAll('input[type=checkbox]')];
-function save(){const s={};boxes.forEach(c=>{if(c.checked)s[c.dataset.k]=1});localStorage.setItem('lesson_d1',JSON.stringify(s));}
-function load(){const s=JSON.parse(localStorage.getItem('lesson_d1')||'{}');boxes.forEach(c=>{if(s[c.dataset.k]){c.checked=true;toggle(c);}});}
+function save(){const s={};boxes.forEach(c=>{if(c.checked)s[c.dataset.k]=1});localStorage.setItem('lesson_d28',JSON.stringify(s));}
+function load(){const s=JSON.parse(localStorage.getItem('lesson_d28')||'{}');boxes.forEach(c=>{if(s[c.dataset.k]){c.checked=true;toggle(c);}});}
 function toggle(c){c.closest('li').classList.toggle('done',c.checked);}
 function prog(){const done=boxes.filter(c=>c.checked).length;const pct=Math.round(done/boxes.length*100);
   document.getElementById('progFill').style.width=pct+'%';document.getElementById('progText').textContent=pct+'%';}
 boxes.forEach(c=>c.addEventListener('change',()=>{toggle(c);save();prog();}));
-function resetAll(){if(confirm('Bỏ tích toàn bộ?')){localStorage.removeItem('lesson_d1');location.reload();}}
+function resetAll(){if(confirm('Bỏ tích toàn bộ?')){localStorage.removeItem('lesson_d28');location.reload();}}
 function blMode(m,btn){
   const b=document.getElementById('biling');
   b.classList.remove('hide-en','hide-vi');
@@ -805,20 +801,6 @@ document.querySelectorAll('.qa-aen').forEach(el=>{const t=clean(el.textContent);
 document.querySelectorAll('.qa-avi .t').forEach(el=>{el.dataset.say=el.textContent.trim();});
 document.querySelectorAll('table.qvoc td.w').forEach(td=>{const t=clean(td.textContent);td.dataset.say=t;td.appendChild(mkSpk(t,'en-US'));});
 
-let hideEnOn=localStorage.getItem('hideEnOn')==='1';
-function applyHideEn(){
-  document.querySelectorAll('.part.p2 .listen').forEach(l=>l.classList.toggle('hide-en',hideEnOn));
-  const btn=document.getElementById('hideEnBtn');
-  if(btn){btn.textContent=hideEnOn?'👁️ Hiện tiếng Anh':'🙈 Ẩn tiếng Anh — nhìn tiếng Việt tự nói tiếng Anh';btn.classList.toggle('active',hideEnOn);}
-}
-function toggleHideEn(){
-  hideEnOn=!hideEnOn;
-  localStorage.setItem('hideEnOn',hideEnOn?'1':'0');
-  document.querySelectorAll('.part.p2 .dialog .en').forEach(e=>e.classList.remove('reveal'));
-  applyHideEn();
-}
-document.querySelectorAll('.part.p2 .dialog .en').forEach(el=>el.addEventListener('click',()=>{if(hideEnOn)el.classList.add('reveal');}));
-applyHideEn();
 load();prog();
 </script>
 </body>
